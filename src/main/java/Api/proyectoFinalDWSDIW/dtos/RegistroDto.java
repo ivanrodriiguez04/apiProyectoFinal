@@ -16,6 +16,7 @@ public class RegistroDto {
 	private byte[] fotoDniTraseroUsuario;
 	private byte[] fotoUsuario;
 	private boolean confirmado;
+	private String token;
 
 	public RegistroDto(long idUsuario, String nombreCompletoUsuario, String telefonoUsuario, String emailUsuario,
 			String passwordUsuario, String dniUsuario, byte[] fotoDniFrontalUsuario, byte[] fotoDniTraseroUsuario,
@@ -31,6 +32,7 @@ public class RegistroDto {
 		this.fotoDniTraseroUsuario = fotoDniTraseroUsuario;
 		this.fotoUsuario = fotoUsuario;
 		this.confirmado = false; // Valor por defecto
+		this.token=token;
 	}
 
 // Método para convertir DTO en entidad UsuarioDao
@@ -135,6 +137,14 @@ public class RegistroDto {
 
 	public void setConfirmado(boolean confirmado) {
 		this.confirmado = confirmado;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }

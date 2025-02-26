@@ -3,20 +3,65 @@ package Api.proyectoFinalDWSDIW.servicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import Api.proyectoFinalDWSDIW.daos.TokenDao;
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 import Api.proyectoFinalDWSDIW.repositorios.TokenRepositorio;
 import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
+import java.util.Optional;
 
 @Service
 public class TokenServicio {
-	@Autowired
+
+    @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
     @Autowired
     private TokenRepositorio tokenRepositorio;
 
+    /**
+     * Verifica si un token es válido y no ha expirado.
+     *
+     * @param token el token a validar
+     * @return true si es válido, false si no lo es
+     */
+    public boolean validarToken(String token) {
+        Optional<TokenDao> tokenDaoOpt = tokenRepositorio.findByToken(token);
+        if (tokenDaoOpt.isEmpty()) {
+            return false; // Token no encontrado
+        }
+        TokenDao tokenDao = tokenDaoOpt.get();
+        return !tokenDao.estaExpirado(); // Verifica que no esté expirado
+    }
+
+
+    /**
+     * Activa la cuenta de un usuario usando el token de confirmación.
+     *
+     * @param token el token de confirmación
+     */
+    public void activarCuenta(String token) {
+        TokenDao tokenDao = tokenRepositorio.findByToken(token)
+                .orElseThrow(() -> new RuntimeException("Token inválido"));
+
+        if (tokenDao.estaExpirado()) {
+            tokenRepositorio.delete(tokenDao); // 🔹 Se elimina el token expirado
+            throw new RuntimeException("El token ha expirado");
+        }
+
+        UsuarioDao usuario = tokenDao.getUsuario();
+        usuario.setConfirmado(true);
+        usuarioRepositorio.save(usuario);
+
+        tokenRepositorio.delete(tokenDao);
+    }
+
+
+    /**
+     * Permite restablecer la contraseña de un usuario usando un token válido.
+     *
+     * @param token el token de restablecimiento de clave
+     * @param nuevaPassword la nueva contraseña del usuario
+     */
     public void restablecerClave(String token, String nuevaPassword) {
         TokenDao tokenDao = tokenRepositorio.findByToken(token)
                 .orElseThrow(() -> new RuntimeException("Token inválido"));

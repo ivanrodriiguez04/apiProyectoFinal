@@ -32,26 +32,28 @@ public class RegistroServicio {
             throw new IllegalStateException("El email ya está registrado.");
         }
 
-        // 🔹 Convertir el DTO en UsuarioDao
+        // 🔹 Convertir DTO a entidad
         UsuarioDao usuario = usuarioDto.toEntity();
-        usuario.setConfirmado(false); // Usuario aún no confirmado
-        usuario.setRolUsuario("usuario"); // 🔹 Establecer rol por defecto
-        usuario.setPasswordUsuario(passwordEncoder.encode(usuarioDto.getPasswordUsuario())); // 🔹 Encriptar contraseña
+        usuario.setConfirmado(false);
+        usuario.setRolUsuario("usuario");
 
         usuarioRepositorio.save(usuario);
 
-        // 🔹 Generar y guardar el token en su propia tabla
-        String token = UUID.randomUUID().toString();
+        // 🔹 Verificar que el token se haya enviado desde la web
+        if (usuarioDto.getToken() == null || usuarioDto.getToken().isEmpty()) {
+            throw new IllegalArgumentException("No se recibió un token válido.");
+        }
+
+        // 🔹 Guardar el token en la base de datos
         TokenDao tokenDao = new TokenDao();
-        tokenDao.setToken(token);
+        tokenDao.setToken(usuarioDto.getToken()); // Se usa el token enviado desde la web
         tokenDao.setUsuario(usuario);
-        tokenDao.setFechaExpiracion(LocalDateTime.now().plusDays(7)); // 🔹 Asegurar que expire en 7 días
+        tokenDao.setFechaExpiracion(LocalDateTime.now().plusDays(7));
 
         tokenRepositorio.save(tokenDao);
 
-        return token;
+        return usuarioDto.getToken(); // Se devuelve el mismo token
     }
-
     
     public boolean confirmarCuenta(String token) {
         // 🔹 Buscar el token en la base de datos
@@ -68,14 +70,15 @@ public class RegistroServicio {
             return false;
         }
 
-        // 🔹 Marcar al usuario como confirmado
+        // 🔹 Confirmar la cuenta del usuario
         UsuarioDao usuario = tokenDao.getUsuario();
         usuario.setConfirmado(true);
         usuarioRepositorio.save(usuario);
 
-        // 🔹 Eliminar el token una vez usado
+        // 🔹 Eliminar el token después de usarlo
         tokenRepositorio.delete(tokenDao);
         return true;
     }
+
 }
 

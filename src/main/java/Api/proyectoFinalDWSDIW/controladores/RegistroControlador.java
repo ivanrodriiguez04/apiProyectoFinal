@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Api.proyectoFinalDWSDIW.dtos.RegistroDto;
 import Api.proyectoFinalDWSDIW.servicios.RegistroServicio;
+import Api.proyectoFinalDWSDIW.servicios.TokenServicio;
 
 @RestController
 @RequestMapping("/api/registro")
 public class RegistroControlador {
-    @Autowired
+	@Autowired
+    private TokenServicio tokenServicio;
+	@Autowired
     private RegistroServicio registroServicio;
 
     @PostMapping("/usuario")
@@ -35,23 +38,20 @@ public class RegistroControlador {
     }
     
     @GetMapping("/confirmar")
-    public ResponseEntity<Object> confirmarCuenta(@RequestParam("token") String token) {
-        boolean confirmado = registroServicio.confirmarCuenta(token);
-
-        if (confirmado) {
-            System.out.println("✅ Usuario confirmado correctamente. Redirigiendo...");
-
-            // 🔹 Redirigir a la página de inicio de sesión
-            return ResponseEntity.status(302)
-                    .header("Location", "http://localhost:8080/inicioSesion.jsp")
-                    .build();
-        } else {
-            System.out.println("⚠️ Token inválido o expirado. No se puede confirmar el usuario.");
-
-            // 🔹 Redirigir a una página de error
-            return ResponseEntity.status(302)
-                    .header("Location", "http://localhost:8080/registro.jsp?error=tokenInvalido")
-                    .build();
+    public ResponseEntity<String> confirmarCuenta(@RequestParam("token") String token) {
+        try {
+            // Verificar si el token existe y es válido
+            boolean esValido = tokenServicio.validarToken(token);
+            
+            if (!esValido) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token inválido o expirado");
+            }
+            
+            // Si es válido, activar la cuenta o realizar la acción necesaria
+            tokenServicio.activarCuenta(token);
+            return ResponseEntity.ok("Cuenta confirmada con éxito");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno: " + e.getMessage());
         }
     }
 }
