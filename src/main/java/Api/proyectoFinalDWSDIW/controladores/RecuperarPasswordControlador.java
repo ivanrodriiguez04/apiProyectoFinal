@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import Api.proyectoFinalDWSDIW.dtos.RecuperarPasswordDto;
 import Api.proyectoFinalDWSDIW.servicios.TokenServicio;
 import Api.proyectoFinalDWSDIW.servicios.UsuarioServicio;
-
+/*
 @RestController
 @RequestMapping("/api/password")
 public class RecuperarPasswordControlador {
@@ -46,3 +46,4 @@ public class RecuperarPasswordControlador {
     }
 
 }
+*/

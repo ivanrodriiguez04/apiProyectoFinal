@@ -23,7 +23,7 @@ public class UsuarioDao {
     private String telefonoUsuario;
 
     @Column(name = "rol_usuario")
-    private String rolUsuario;
+    private String rolUsuario ="usuario";
 
     @Column(name = "email_usuario", length = 50, unique = true)
     private String emailUsuario;
