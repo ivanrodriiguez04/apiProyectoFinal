@@ -15,9 +15,16 @@ import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 @Repository
 public interface TokenRepositorio extends JpaRepository<TokenDao, Long> {
     Optional<TokenDao> findByToken(String token);
-    Optional<TokenDao> findByUsuario(UsuarioDao usuario); // Nuevo método
+    Optional<TokenDao> findByUsuario(UsuarioDao usuario);
+
     @Modifying
     @Transactional
     @Query("DELETE FROM TokenDao t WHERE t.token = :token")
     void deleteByToken(@Param("token") String token);
+
+    // ✅ Eliminar todos los tokens de un usuario antes de generar uno nuevo
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM TokenDao t WHERE t.usuario = :usuario")
+    void deleteByUsuario(@Param("usuario") UsuarioDao usuario);
 }
