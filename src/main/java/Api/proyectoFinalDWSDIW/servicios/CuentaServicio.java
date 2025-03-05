@@ -1,14 +1,13 @@
 package Api.proyectoFinalDWSDIW.servicios;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import Api.proyectoFinalDWSDIW.daos.CuentaDao;
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 import Api.proyectoFinalDWSDIW.repositorios.CuentaRepositorio;
 import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CuentaServicio {
@@ -21,29 +20,43 @@ public class CuentaServicio {
         this.usuarioRepositorio = usuarioRepositorio;
     }
 
+    /**
+     * 🔹 Obtiene todas las cuentas de un usuario por su ID.
+     */
     public List<CuentaDao> obtenerCuentasPorUsuario(Long idUsuario) {
         return cuentaRepositorio.findByUsuarioIdUsuario(idUsuario);
     }
 
-    public boolean crearCuenta(CuentaDao cuenta) {
-        try {
-            Optional<UsuarioDao> usuarioOpt = usuarioRepositorio.findById(cuenta.getIdUsuario());
-            if (usuarioOpt.isPresent()) {
-                cuenta.setUsuario(usuarioOpt.get());  // 🔹 Asigna correctamente el usuario
-                cuenta.setDineroCuenta(0.0);
-                cuentaRepositorio.save(cuenta);
-                return true;
+    /**
+     * 🔹 Crea una cuenta y asigna el ID del usuario en la relación.
+     */
+    public boolean crearCuenta(Long idUsuario, String nombreCuenta, String tipoCuenta, String ibanCuenta, Double dineroCuenta) {
+        Optional<UsuarioDao> usuarioOpt = usuarioRepositorio.findById(idUsuario);
+        
+        if (usuarioOpt.isPresent()) {  
+            // 🔹 Verifica si el IBAN ya existe antes de guardar la cuenta
+            if (cuentaRepositorio.findByIbanCuenta(ibanCuenta).isPresent()) {
+                return false; // 🔴 No se puede crear porque el IBAN ya está en uso
             }
-            return false; // Si no existe el usuario, no se crea la cuenta
-        } catch (Exception e) {
-            return false;
+
+            CuentaDao nuevaCuenta = new CuentaDao();
+            nuevaCuenta.setUsuario(usuarioOpt.get());
+            nuevaCuenta.setNombreCuenta(nombreCuenta);
+            nuevaCuenta.setTipoCuenta(tipoCuenta);
+            nuevaCuenta.setIbanCuenta(ibanCuenta);
+            nuevaCuenta.setDineroCuenta(dineroCuenta);
+            cuentaRepositorio.save(nuevaCuenta);
+            return true;
         }
+        return false; // 🔴 No se encontró el usuario
     }
 
+    /**
+     * 🔹 Elimina una cuenta si existe en la base de datos.
+     */
     public boolean eliminarCuenta(Long idCuenta) {
-        Optional<CuentaDao> cuenta = cuentaRepositorio.findById(idCuenta);
-        if (cuenta.isPresent()) {
-            cuentaRepositorio.delete(cuenta.get());
+        if (cuentaRepositorio.existsById(idCuenta)) {
+            cuentaRepositorio.deleteById(idCuenta);
             return true;
         }
         return false;
