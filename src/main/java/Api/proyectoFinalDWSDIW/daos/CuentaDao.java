@@ -34,16 +34,18 @@ public class CuentaDao {
     @JsonProperty("idUsuario") // Asegura que se mapea desde JSON
     private Long idUsuario;
 
+    // 🔹 Corrección: Manejo seguro de null en getIdUsuario
     public Long getIdUsuario() {
-        return (usuario != null) ? usuario.getIdUsuario() : null;
+        return (usuario != null) ? usuario.getIdUsuario() : idUsuario;
     }
 
+    // 🔹 Corrección: Inicialización de usuario en setIdUsuario si es null
     public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
-        if (usuario == null) {
-            usuario = new UsuarioDao();
+        if (this.usuario == null) {
+            this.usuario = new UsuarioDao();
         }
-        usuario.setIdUsuario(idUsuario);
+        this.usuario.setIdUsuario(idUsuario);
     }
 
     // Getters & Setters

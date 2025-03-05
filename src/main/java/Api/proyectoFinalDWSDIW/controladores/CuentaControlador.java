@@ -20,6 +20,9 @@ public class CuentaControlador {
 
     @GetMapping("/usuario/{idUsuario}")
     public ResponseEntity<?> obtenerCuentasPorUsuario(@PathVariable Long idUsuario) {
+        if (idUsuario == null || idUsuario <= 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "El ID de usuario es inválido"));
+        }
         List<CuentaDao> cuentas = cuentaServicio.obtenerCuentasPorUsuario(idUsuario);
         if (cuentas.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "No hay cuentas para este usuario"));
@@ -31,8 +34,8 @@ public class CuentaControlador {
     public ResponseEntity<?> crearCuenta(@RequestBody CuentaDao cuentaDao) {
         System.out.println("Recibido: " + cuentaDao);
 
-        if (cuentaDao.getIdUsuario() == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "El ID de usuario es obligatorio"));
+        if (cuentaDao.getIdUsuario() == null || cuentaDao.getIdUsuario() <= 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "El ID de usuario es obligatorio y debe ser válido"));
         }
         if (cuentaDao.getIbanCuenta() == null || cuentaDao.getIbanCuenta().isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "El IBAN es obligatorio"));
@@ -48,6 +51,9 @@ public class CuentaControlador {
 
     @DeleteMapping("/eliminar/{idCuenta}")
     public ResponseEntity<?> eliminarCuenta(@PathVariable Long idCuenta) {
+        if (idCuenta == null || idCuenta <= 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "El ID de cuenta es inválido"));
+        }
         boolean eliminado = cuentaServicio.eliminarCuenta(idCuenta);
         if (eliminado) {
             return ResponseEntity.ok(Map.of("mensaje", "Cuenta eliminada con éxito"));
