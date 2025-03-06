@@ -15,6 +15,11 @@ import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controlador para la gestión de cuentas a través de la API REST.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @RestController
 @RequestMapping("/api/cuentas")
 public class CuentaControlador {
@@ -27,6 +32,11 @@ public class CuentaControlador {
     
     private static final Logger logger = LoggerFactory.getLogger(CuentaControlador.class);
 
+    /**
+     * Obtiene las cuentas asociadas a un usuario por su ID.
+     * @param idUsuario ID del usuario.
+     * @return Lista de cuentas o mensaje de error si no existen.
+     */
     @GetMapping("/usuario/{idUsuario}")
     public ResponseEntity<?> obtenerCuentasPorUsuario(@PathVariable("idUsuario") Long idUsuario) {
         logger.info("Solicitud para obtener cuentas del usuario con ID: {}", idUsuario);
@@ -39,6 +49,11 @@ public class CuentaControlador {
         return ResponseEntity.ok(cuentas);
     }
 
+    /**
+     * Obtiene las cuentas de un usuario por su correo electrónico.
+     * @param emailUsuario Email del usuario.
+     * @return Lista de cuentas o mensaje de error si no existen.
+     */
     @GetMapping("/usuario/email/{email}")
     public ResponseEntity<?> obtenerCuentasPorEmail(@PathVariable("email") String emailUsuario) {
         logger.info("Solicitud para obtener cuentas del usuario con email: {}", emailUsuario);
@@ -56,6 +71,11 @@ public class CuentaControlador {
         return ResponseEntity.ok(cuentas);
     }
 
+    /**
+     * Crea una nueva cuenta para un usuario.
+     * @param requestBody Datos de la cuenta en formato JSON.
+     * @return Mensaje de éxito o error.
+     */
     @PostMapping("/crear")
     public ResponseEntity<?> crearCuenta(@RequestBody Map<String, String> requestBody) {
         logger.info("Solicitud para crear una cuenta con datos: {}", requestBody);
@@ -87,6 +107,11 @@ public class CuentaControlador {
         }
     }
 
+    /**
+     * Elimina una cuenta por su ID.
+     * @param idCuenta ID de la cuenta a eliminar.
+     * @return Mensaje de éxito o error.
+     */
     @DeleteMapping("/eliminar/{idCuenta}")
     public ResponseEntity<?> eliminarCuenta(@PathVariable("idCuenta") Long idCuenta) {
         logger.info("Solicitud para eliminar cuenta con ID: {}", idCuenta);

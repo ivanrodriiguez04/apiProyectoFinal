@@ -4,6 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+/**
+ * Entidad que representa una cuenta en la base de datos.
+ * Contiene información sobre la cuenta bancaria de un usuario.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @Entity
 @Table(name = "cuenta", schema = "logica_proyecto_final")
 public class CuentaDao {
@@ -34,12 +40,20 @@ public class CuentaDao {
     @JsonProperty("idUsuario") // Asegura que se mapea desde JSON
     private Long idUsuario;
 
-    // 🔹 Corrección: Manejo seguro de null en getIdUsuario
+    /**
+     * Obtiene el ID del usuario asociado a la cuenta.
+     * 
+     * @return ID del usuario
+     */
     public Long getIdUsuario() {
         return (usuario != null) ? usuario.getIdUsuario() : idUsuario;
     }
 
-    // 🔹 Corrección: Inicialización de usuario en setIdUsuario si es null
+    /**
+     * Establece el ID del usuario y lo inicializa si es necesario.
+     * 
+     * @param idUsuario ID del usuario
+     */
     public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
         if (this.usuario == null) {

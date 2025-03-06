@@ -2,55 +2,66 @@ package Api.proyectoFinalDWSDIW.dtos;
 
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 
+/**
+ * DTO para el proceso de registro de un usuario.
+ * Contiene los datos necesarios para crear un nuevo usuario.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 public class RegistroDto {
 
-	// Atributos
-	private long idUsuario;
-	private String nombreCompletoUsuario;
-	private String telefonoUsuario;
-	private String rolUsuario;
-	private String emailUsuario;
-	private String passwordUsuario;
-	private String dniUsuario;
-	private byte[] fotoDniFrontalUsuario;
-	private byte[] fotoDniTraseroUsuario;
-	private byte[] fotoUsuario;
-	private boolean confirmado;
-	private String token;
+    private long idUsuario;
+    private String nombreCompletoUsuario;
+    private String telefonoUsuario;
+    private String rolUsuario;
+    private String emailUsuario;
+    private String passwordUsuario;
+    private String dniUsuario;
+    private byte[] fotoDniFrontalUsuario;
+    private byte[] fotoDniTraseroUsuario;
+    private byte[] fotoUsuario;
+    private boolean confirmado;
+    private String token;
 
-	public RegistroDto(long idUsuario, String nombreCompletoUsuario, String telefonoUsuario, String emailUsuario,
-			String passwordUsuario, String dniUsuario, byte[] fotoDniFrontalUsuario, byte[] fotoDniTraseroUsuario,
-			byte[] fotoUsuario) {
-		this.idUsuario = idUsuario;
-		this.nombreCompletoUsuario = nombreCompletoUsuario;
-		this.telefonoUsuario = telefonoUsuario;
-		this.rolUsuario = "usuario"; // Valor por defecto
-		this.emailUsuario = emailUsuario;
-		this.passwordUsuario = passwordUsuario;
-		this.dniUsuario = dniUsuario;
-		this.fotoDniFrontalUsuario = fotoDniFrontalUsuario;
-		this.fotoDniTraseroUsuario = fotoDniTraseroUsuario;
-		this.fotoUsuario = fotoUsuario;
-		this.confirmado = false; // Valor por defecto
-		this.token=token;
-	}
+    /**
+     * Constructor con los atributos principales para el registro de usuario.
+     */
+    public RegistroDto(long idUsuario, String nombreCompletoUsuario, String telefonoUsuario, String emailUsuario,
+                       String passwordUsuario, String dniUsuario, byte[] fotoDniFrontalUsuario, 
+                       byte[] fotoDniTraseroUsuario, byte[] fotoUsuario) {
+        this.idUsuario = idUsuario;
+        this.nombreCompletoUsuario = nombreCompletoUsuario;
+        this.telefonoUsuario = telefonoUsuario;
+        this.rolUsuario = "usuario"; // Valor por defecto
+        this.emailUsuario = emailUsuario;
+        this.passwordUsuario = passwordUsuario;
+        this.dniUsuario = dniUsuario;
+        this.fotoDniFrontalUsuario = fotoDniFrontalUsuario;
+        this.fotoDniTraseroUsuario = fotoDniTraseroUsuario;
+        this.fotoUsuario = fotoUsuario;
+        this.confirmado = false; // Valor por defecto
+    }
 
-// Método para convertir DTO en entidad UsuarioDao
-	public UsuarioDao toEntity() {
-		UsuarioDao usuario = new UsuarioDao();
-		usuario.setNombreCompletoUsuario(this.nombreCompletoUsuario);
-		usuario.setTelefonoUsuario(this.telefonoUsuario);
-		usuario.setEmailUsuario(this.emailUsuario);
-		usuario.setPasswordUsuario(this.passwordUsuario);
-		usuario.setDniUsuario(this.dniUsuario);
-		usuario.setFotoDniFrontalUsuario(this.fotoDniFrontalUsuario);
-		usuario.setFotoDniTraseroUsuario(this.fotoDniTraseroUsuario);
-		usuario.setFotoUsuario(this.fotoUsuario);
-		usuario.setConfirmado(false); // Inicialmente no confirmado
-		return usuario;
-	}
+    /**
+     * Convierte el DTO en la entidad UsuarioDao.
+     * 
+     * @return Instancia de UsuarioDao
+     */
+    public UsuarioDao toEntity() {
+        UsuarioDao usuario = new UsuarioDao();
+        usuario.setNombreCompletoUsuario(this.nombreCompletoUsuario);
+        usuario.setTelefonoUsuario(this.telefonoUsuario);
+        usuario.setEmailUsuario(this.emailUsuario);
+        usuario.setPasswordUsuario(this.passwordUsuario);
+        usuario.setDniUsuario(this.dniUsuario);
+        usuario.setFotoDniFrontalUsuario(this.fotoDniFrontalUsuario);
+        usuario.setFotoDniTraseroUsuario(this.fotoDniTraseroUsuario);
+        usuario.setFotoUsuario(this.fotoUsuario);
+        usuario.setConfirmado(false); // Inicialmente no confirmado
+        return usuario;
+    }
+    //Getters & Setters
 
-	// Getters & Setters
 	public long getIdUsuario() {
 		return idUsuario;
 	}
@@ -146,5 +157,5 @@ public class RegistroDto {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
+    
 }

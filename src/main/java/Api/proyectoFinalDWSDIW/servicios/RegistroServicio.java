@@ -14,14 +14,29 @@ import Api.proyectoFinalDWSDIW.dtos.RegistroDto;
 import Api.proyectoFinalDWSDIW.repositorios.TokenRepositorio;
 import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
 
+/**
+ * Servicio para manejar el registro y la confirmación de cuentas de usuarios.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @Service
 public class RegistroServicio {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
+    
     @Autowired
     private TokenRepositorio tokenRepositorio;
+    
     private static final Logger logger = LoggerFactory.getLogger(RegistroServicio.class);
 
+    /**
+     * Registra un nuevo usuario en el sistema.
+     * 
+     * @param usuarioDto Datos del usuario a registrar.
+     * @return Token de confirmación asociado al usuario registrado.
+     * @throws IllegalArgumentException Si el email o el token son nulos o vacíos.
+     * @throws IllegalStateException Si el email ya está registrado en el sistema.
+     */
     public String registrarUsuario(RegistroDto usuarioDto) {
         logger.info("Intentando registrar usuario con email: {}", usuarioDto.getEmailUsuario());
         
@@ -55,6 +70,12 @@ public class RegistroServicio {
         return usuarioDto.getToken();
     }
     
+    /**
+     * Confirma la cuenta de un usuario utilizando un token de validación.
+     * 
+     * @param token Token de confirmación asociado a la cuenta del usuario.
+     * @return true si la cuenta fue confirmada correctamente, false si el token es inválido o expiró.
+     */
     public boolean confirmarCuenta(String token) {
         logger.info("Intentando confirmar cuenta con token: {}", token);
         

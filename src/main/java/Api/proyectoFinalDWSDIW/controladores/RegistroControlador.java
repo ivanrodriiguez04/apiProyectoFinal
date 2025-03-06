@@ -16,15 +16,27 @@ import Api.proyectoFinalDWSDIW.dtos.RegistroDto;
 import Api.proyectoFinalDWSDIW.servicios.RegistroServicio;
 import Api.proyectoFinalDWSDIW.servicios.TokenServicio;
 
+/**
+ * Controlador para la gestión del registro de usuarios.
+ * Proporciona endpoints para registrar y confirmar cuentas.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @RestController
 @RequestMapping("/api/registro")
 public class RegistroControlador {
-	@Autowired
+    @Autowired
     private TokenServicio tokenServicio;
-	@Autowired
+    @Autowired
     private RegistroServicio registroServicio;
     private static final Logger logger = LoggerFactory.getLogger(RegistroControlador.class);
 
+    /**
+     * Registra un nuevo usuario.
+     * 
+     * @param usuarioDto Datos del usuario a registrar
+     * @return ResponseEntity con el resultado del registro
+     */
     @PostMapping("/usuario")
     public ResponseEntity<String> registroUsuario(@RequestBody RegistroDto usuarioDto) {
         try {
@@ -44,6 +56,12 @@ public class RegistroControlador {
         }
     }
     
+    /**
+     * Confirma la cuenta de un usuario mediante un token.
+     * 
+     * @param token Token de confirmación
+     * @return ResponseEntity con el resultado de la confirmación
+     */
     @GetMapping("/confirmar")
     public ResponseEntity<String> confirmarCuenta(@RequestParam("token") String token) {
         try {

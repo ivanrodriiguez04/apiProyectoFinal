@@ -12,6 +12,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+/**
+ * Entidad que representa un registro temporal en la base de datos.
+ * Se usa para almacenar tokens de verificación de cuenta.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @Entity
 @Table(name = "registro_temporal", schema = "logica_proyecto_final")
 public class RegistroTemporalDao {
@@ -29,43 +35,25 @@ public class RegistroTemporalDao {
     @Column(nullable = false)
     private LocalDateTime fechaExpiracion;
 
+    /**
+     * Verifica si el token ha expirado.
+     * 
+     * @return true si ha expirado, false en caso contrario
+     */
     public boolean estaExpirado() {
         return fechaExpiracion.isBefore(LocalDateTime.now());
     }
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public UsuarioDao getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(UsuarioDao usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public LocalDateTime getFechaExpiracion() {
-		return fechaExpiracion;
-	}
-
-	public void setFechaExpiracion(LocalDateTime fechaExpiracion) {
-		this.fechaExpiracion = fechaExpiracion;
-	}
-
     // Getters y Setters
-    
-}
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
+    public UsuarioDao getUsuario() { return usuario; }
+    public void setUsuario(UsuarioDao usuario) { this.usuario = usuario; }
+
+    public String getToken() { return token; }
+    public void setToken(String token) { this.token = token; }
+
+    public LocalDateTime getFechaExpiracion() { return fechaExpiracion; }
+    public void setFechaExpiracion(LocalDateTime fechaExpiracion) { this.fechaExpiracion = fechaExpiracion; }
+}

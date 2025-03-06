@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 import Api.proyectoFinalDWSDIW.servicios.AdministradorServicio;
 
+
+/**
+ * Controlador para gestionar usuarios administradores.
+ * Proporciona endpoints para obtener y eliminar usuarios.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @RestController
 @RequestMapping("/api/administrador")
 public class AdministradorControlador {
@@ -24,6 +31,11 @@ public class AdministradorControlador {
 
     private static final Logger logger = LoggerFactory.getLogger(AdministradorControlador.class);
     
+    /**
+     * Obtiene la lista de todos los usuarios.
+     * 
+     * @return ResponseEntity con la lista de usuarios o código 204 si está vacía
+     */
     @GetMapping("/usuarios")
     public ResponseEntity<List<UsuarioDao>> obtenerUsuarios() {
         logger.info("Solicitud recibida para obtener todos los usuarios");
@@ -33,10 +45,15 @@ public class AdministradorControlador {
             return ResponseEntity.noContent().build();
         }
         logger.info("Usuarios obtenidos: {}", usuarios.size());
-        System.out.println("Usuarios obtenidos desde la API: " + usuarios.size());
         return ResponseEntity.ok(usuarios);
     }
 
+    /**
+     * Elimina un usuario por su ID.
+     * 
+     * @param id Identificador del usuario a eliminar
+     * @return ResponseEntity con mensaje de éxito o error
+     */
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<String> eliminarUsuario(@PathVariable Long id) {
         logger.info("Solicitud recibida para eliminar usuario con ID: {}", id);

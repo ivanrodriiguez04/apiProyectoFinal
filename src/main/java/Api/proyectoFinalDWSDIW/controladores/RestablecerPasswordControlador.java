@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import Api.proyectoFinalDWSDIW.servicios.RestablecerPasswordServicio;
 
+/**
+ * Controlador para la gestión del restablecimiento de contraseña.
+ * Proporciona endpoints para guardar tokens y restablecer contraseñas.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @RestController
 @RequestMapping("/api/usuarios")
 public class RestablecerPasswordControlador {
@@ -19,7 +25,12 @@ public class RestablecerPasswordControlador {
     private RestablecerPasswordServicio restablecerPasswordServicio;
     private static final Logger logger = LoggerFactory.getLogger(RestablecerPasswordControlador.class);
 
-    // ✅ Endpoint para guardar el token en la base de datos
+    /**
+     * Guarda un token para el restablecimiento de contraseña.
+     * 
+     * @param request Mapa con email, token y fecha de expiración
+     * @return ResponseEntity con el resultado de la operación
+     */
     @PostMapping("/guardarToken")
     public ResponseEntity<?> guardarToken(@RequestBody Map<String, String> request) {
         String email = request.get("email");
@@ -38,7 +49,12 @@ public class RestablecerPasswordControlador {
         }
     }
 
-    // ✅ Endpoint para actualizar la contraseña
+    /**
+     * Restablece la contraseña de un usuario.
+     * 
+     * @param request Mapa con email, token y nueva contraseña
+     * @return ResponseEntity con el resultado de la operación
+     */
     @PostMapping("/restablecer")
     public ResponseEntity<?> restablecerContrasena(@RequestBody Map<String, String> request) {
         String email = request.get("email");
@@ -57,3 +73,4 @@ public class RestablecerPasswordControlador {
         }
     }
 }
+

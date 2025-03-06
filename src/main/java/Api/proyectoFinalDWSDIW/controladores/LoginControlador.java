@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import Api.proyectoFinalDWSDIW.dtos.LoginDto;
 import Api.proyectoFinalDWSDIW.servicios.UsuarioServicio;
 
+/**
+ * Controlador para la autenticación de usuarios.
+ * Proporciona un endpoint para validar credenciales.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @RestController
 @RequestMapping("/api/login")
 public class LoginControlador {
@@ -21,6 +27,12 @@ public class LoginControlador {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginControlador.class);
 
+    /**
+     * Valida las credenciales de un usuario.
+     * 
+     * @param usuario Objeto con email y contraseña del usuario
+     * @return ResponseEntity con mensaje de autenticación
+     */
     @PostMapping("/validarUsuario")
     public ResponseEntity<String> autenticarUsuario(@RequestBody LoginDto usuario) {
         logger.info("Intento de inicio de sesión para el usuario: {}", usuario.getEmailUsuario());
@@ -29,10 +41,8 @@ public class LoginControlador {
 
         if (response.getStatusCode().is2xxSuccessful()) {
             logger.info("Inicio de sesión exitoso para el usuario: {}", usuario.getEmailUsuario());
-        } else if (response.getStatusCode().value() == 403) {
-            logger.warn("Intento de inicio de sesión fallido. Usuario no confirmado: {}", usuario.getEmailUsuario());
         } else {
-            logger.warn("Intento de inicio de sesión fallido. Credenciales incorrectas para el usuario: {}", usuario.getEmailUsuario());
+            logger.warn("Intento de inicio de sesión fallido. Credenciales incorrectas o usuario no confirmado: {}", usuario.getEmailUsuario());
         }
 
         return response;

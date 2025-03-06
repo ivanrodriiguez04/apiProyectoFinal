@@ -3,16 +3,14 @@ package Api.proyectoFinalDWSDIW.daos;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-
+/**
+ * Entidad que representa un usuario en la base de datos.
+ * Contiene información personal y credenciales de acceso.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @Entity
 @Table(name = "usuario", schema = "proyecto_final")
 public class UsuarioDao {
@@ -52,13 +50,19 @@ public class UsuarioDao {
     @Column(name = "confirmado", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean confirmado = false;
 
-    // 🔹 Relación con CuentaDao, evita la recursión con @JsonManagedReference
+    // Relación con CuentaDao, evita la recursión con @JsonIgnore
     @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<CuentaDao> cuentas;
 
+    /**
+     * Constructor vacío.
+     */
     public UsuarioDao() {}
 
+    /**
+     * Constructor con parámetros.
+     */
     public UsuarioDao(long idUsuario, String nombreCompletoUsuario, String telefonoUsuario, String rolUsuario,
                       String emailUsuario, String passwordUsuario, String dniUsuario, byte[] fotoDniFrontalUsuario,
                       byte[] fotoDniTraseroUsuario, byte[] fotoUsuario, boolean confirmado) {

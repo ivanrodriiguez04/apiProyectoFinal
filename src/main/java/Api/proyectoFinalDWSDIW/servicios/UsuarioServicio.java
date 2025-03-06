@@ -1,7 +1,6 @@
 package Api.proyectoFinalDWSDIW.servicios;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +17,12 @@ import Api.proyectoFinalDWSDIW.repositorios.RegistroTemporalRepositorio;
 import Api.proyectoFinalDWSDIW.repositorios.TokenRepositorio;
 import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
 
+/**
+ * Servicio que gestiona la autenticación y registro de usuarios, incluyendo
+ * validación de credenciales, registro temporal y confirmación de cuentas.
+ * 
+ * @author irodhan - 06/03/2025
+ */
 @Service
 public class UsuarioServicio {
 
@@ -32,6 +37,13 @@ public class UsuarioServicio {
     
     private static final Logger logger = LoggerFactory.getLogger(UsuarioServicio.class);
 
+    /**
+     * Valida las credenciales de un usuario y verifica si su cuenta está confirmada.
+     *
+     * @param emailUsuario Correo electrónico del usuario.
+     * @param passwordUsuario Contraseña del usuario.
+     * @return ResponseEntity con el estado de autenticación o el rol del usuario si es exitoso.
+     */
     public ResponseEntity<String> validarCredenciales(String emailUsuario, String passwordUsuario) {
         logger.info("Validando credenciales para el usuario: {}", emailUsuario);
 
@@ -51,10 +63,21 @@ public class UsuarioServicio {
         return ResponseEntity.ok(usuario.getRolUsuario());
     }
 
+    /**
+     * Verifica si un correo electrónico ya está registrado en la base de datos.
+     *
+     * @param emailUsuario Correo electrónico a verificar.
+     * @return true si el correo ya está registrado, false en caso contrario.
+     */
     public boolean emailExistsUsuario(String emailUsuario) {
         return usuarioRepositorio.existsByEmailUsuario(emailUsuario);
     }
 
+    /**
+     * Registra un nuevo usuario en la base de datos.
+     *
+     * @param usuarioDto Datos del usuario a registrar.
+     */
     public void registroUsuario(RegistroDto usuarioDto) {
         if (usuarioDto.getEmailUsuario() == null || usuarioDto.getEmailUsuario().isEmpty()) {
             throw new IllegalArgumentException("El email es obligatorio.");
@@ -75,6 +98,13 @@ public class UsuarioServicio {
         logger.info("Usuario registrado con éxito: {}", usuario.getEmailUsuario());
     }
 
+    /**
+     * Actualiza la contraseña de un usuario utilizando un token de restablecimiento válido.
+     *
+     * @param token Token de restablecimiento.
+     * @param nuevaPassword Nueva contraseña del usuario.
+     * @return true si la contraseña se actualizó correctamente, false en caso contrario.
+     */
     @Transactional
     public boolean actualizarPassword(String token, String nuevaPassword) {
         logger.info("Intentando actualizar la contraseña con token: {}", token);
@@ -94,6 +124,13 @@ public class UsuarioServicio {
         return true;
     }
 
+    /**
+     * Guarda un registro temporal de usuario con un token de confirmación.
+     *
+     * @param usuarioDto Datos del usuario a registrar temporalmente.
+     * @param token Token de confirmación asociado.
+     * @param fechaExpiracion Fecha de expiración del token.
+     */
     public void guardarRegistroTemporal(RegistroDto usuarioDto, String token, LocalDateTime fechaExpiracion) {
         logger.info("Recibiendo datos del usuario para registro temporal...");
 
@@ -105,7 +142,6 @@ public class UsuarioServicio {
         usuario.setPasswordUsuario(passwordEncoder.encode(usuarioDto.getPasswordUsuario()));
         usuario.setRolUsuario("usuario");
         usuario.setConfirmado(false);
-
         usuario.setFotoDniFrontalUsuario(usuarioDto.getFotoDniFrontalUsuario());
         usuario.setFotoDniTraseroUsuario(usuarioDto.getFotoDniTraseroUsuario());
         usuario.setFotoUsuario(usuarioDto.getFotoUsuario());
@@ -120,40 +156,5 @@ public class UsuarioServicio {
 
         registroTemporalRepositorio.save(registroTemporal);
         logger.info("Registro temporal guardado con token: {}", token);
-    }
-
-    @Transactional
-    public boolean confirmarRegistro(String token) {
-        logger.info("Intentando confirmar registro con token: {}", token);
-
-        Optional<RegistroTemporalDao> optionalRegistroTemporal = registroTemporalRepositorio.findByToken(token);
-
-        if (optionalRegistroTemporal.isEmpty()) {
-            logger.warn("Token no encontrado en la base de datos.");
-            return false;
-        }
-
-        RegistroTemporalDao registroTemporal = optionalRegistroTemporal.get();
-
-        if (registroTemporal.getFechaExpiracion().isBefore(LocalDateTime.now())) {
-            logger.warn("Token expirado.");
-            return false;
-        }
-
-        UsuarioDao usuario = registroTemporal.getUsuario();
-
-        if (usuario == null) {
-            logger.warn("Usuario no encontrado en la base de datos.");
-            return false;
-        }
-
-        usuario.setConfirmado(true);
-        usuarioRepositorio.save(usuario);
-        logger.info("Usuario confirmado exitosamente: {}", usuario.getEmailUsuario());
-
-        registroTemporalRepositorio.delete(registroTemporal);
-        logger.info("Registro temporal eliminado para el token: {}", token);
-
-        return true;
     }
 }
