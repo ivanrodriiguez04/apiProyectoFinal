@@ -2,10 +2,10 @@ package Api.proyectoFinalDWSDIW.servicios;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import Api.proyectoFinalDWSDIW.daos.TokenDao;
@@ -17,68 +17,66 @@ import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
 @Service
 public class RegistroServicio {
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
     private UsuarioRepositorio usuarioRepositorio;
     @Autowired
     private TokenRepositorio tokenRepositorio;
+    private static final Logger logger = LoggerFactory.getLogger(RegistroServicio.class);
 
     public String registrarUsuario(RegistroDto usuarioDto) {
+        logger.info("Intentando registrar usuario con email: {}", usuarioDto.getEmailUsuario());
+        
         if (usuarioDto.getEmailUsuario() == null || usuarioDto.getEmailUsuario().isEmpty()) {
+            logger.warn("Error en el registro: El email es obligatorio.");
             throw new IllegalArgumentException("El email es obligatorio.");
         }
 
         if (usuarioRepositorio.existsByEmailUsuario(usuarioDto.getEmailUsuario())) {
+            logger.warn("Error en el registro: El email {} ya está registrado.", usuarioDto.getEmailUsuario());
             throw new IllegalStateException("El email ya está registrado.");
         }
 
-        // 🔹 Convertir DTO a entidad
         UsuarioDao usuario = usuarioDto.toEntity();
         usuario.setConfirmado(false);
         usuario.setRolUsuario("usuario");
-
         usuarioRepositorio.save(usuario);
 
-        // 🔹 Verificar que el token se haya enviado desde la web
         if (usuarioDto.getToken() == null || usuarioDto.getToken().isEmpty()) {
+            logger.warn("Error en el registro: No se recibió un token válido.");
             throw new IllegalArgumentException("No se recibió un token válido.");
         }
 
-        // 🔹 Guardar el token en la base de datos
         TokenDao tokenDao = new TokenDao();
-        tokenDao.setToken(usuarioDto.getToken()); // Se usa el token enviado desde la web
+        tokenDao.setToken(usuarioDto.getToken());
         tokenDao.setUsuario(usuario);
         tokenDao.setFechaExpiracion(LocalDateTime.now().plusDays(7));
-
         tokenRepositorio.save(tokenDao);
 
-        return usuarioDto.getToken(); // Se devuelve el mismo token
+        logger.info("Registro exitoso para el usuario con email: {}", usuarioDto.getEmailUsuario());
+        return usuarioDto.getToken();
     }
     
     public boolean confirmarCuenta(String token) {
-        // 🔹 Buscar el token en la base de datos
+        logger.info("Intentando confirmar cuenta con token: {}", token);
+        
         Optional<TokenDao> tokenOpt = tokenRepositorio.findByToken(token);
         if (tokenOpt.isEmpty()) {
-            return false; // Token no encontrado
-        }
-
-        TokenDao tokenDao = tokenOpt.get();
-
-        // 🔹 Verificar si el token ha expirado
-        if (tokenDao.estaExpirado()) {
-            tokenRepositorio.delete(tokenDao); // Eliminar el token expirado
+            logger.warn("Token no encontrado o inválido: {}", token);
             return false;
         }
 
-        // 🔹 Confirmar la cuenta del usuario
+        TokenDao tokenDao = tokenOpt.get();
+        if (tokenDao.estaExpirado()) {
+            logger.warn("Token expirado: {}", token);
+            tokenRepositorio.delete(tokenDao);
+            return false;
+        }
+
         UsuarioDao usuario = tokenDao.getUsuario();
         usuario.setConfirmado(true);
         usuarioRepositorio.save(usuario);
 
-        // 🔹 Eliminar el token después de usarlo
         tokenRepositorio.delete(tokenDao);
+        logger.info("Cuenta confirmada con éxito para el usuario con email: {}", usuario.getEmailUsuario());
         return true;
     }
-
 }
-

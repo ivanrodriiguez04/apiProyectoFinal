@@ -1,5 +1,7 @@
 package Api.proyectoFinalDWSDIW.servicios;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import Api.proyectoFinalDWSDIW.daos.CuentaDao;
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
@@ -14,29 +16,26 @@ public class CuentaServicio {
 
     private final CuentaRepositorio cuentaRepositorio;
     private final UsuarioRepositorio usuarioRepositorio;
+    private static final Logger logger = LoggerFactory.getLogger(CuentaServicio.class);
 
     public CuentaServicio(CuentaRepositorio cuentaRepositorio, UsuarioRepositorio usuarioRepositorio) {
         this.cuentaRepositorio = cuentaRepositorio;
         this.usuarioRepositorio = usuarioRepositorio;
     }
 
-    /**
-     * 🔹 Obtiene todas las cuentas de un usuario por su ID.
-     */
     public List<CuentaDao> obtenerCuentasPorUsuario(Long idUsuario) {
+        logger.info("Obteniendo cuentas para el usuario con ID: {}", idUsuario);
         return cuentaRepositorio.findByUsuarioIdUsuario(idUsuario);
     }
 
-    /**
-     * 🔹 Crea una cuenta y asigna el ID del usuario en la relación.
-     */
     public boolean crearCuenta(Long idUsuario, String nombreCuenta, String tipoCuenta, String ibanCuenta, Double dineroCuenta) {
+        logger.info("Intentando crear una cuenta para el usuario con ID: {}", idUsuario);
         Optional<UsuarioDao> usuarioOpt = usuarioRepositorio.findById(idUsuario);
         
-        if (usuarioOpt.isPresent()) {  
-            // 🔹 Verifica si el IBAN ya existe antes de guardar la cuenta
+        if (usuarioOpt.isPresent()) {
             if (cuentaRepositorio.findByIbanCuenta(ibanCuenta).isPresent()) {
-                return false; // 🔴 No se puede crear porque el IBAN ya está en uso
+                logger.warn("No se pudo crear la cuenta. IBAN {} ya está en uso", ibanCuenta);
+                return false;
             }
 
             CuentaDao nuevaCuenta = new CuentaDao();
@@ -46,19 +45,24 @@ public class CuentaServicio {
             nuevaCuenta.setIbanCuenta(ibanCuenta);
             nuevaCuenta.setDineroCuenta(dineroCuenta);
             cuentaRepositorio.save(nuevaCuenta);
+            
+            logger.info("Cuenta creada con éxito para el usuario con ID: {}", idUsuario);
             return true;
         }
-        return false; // 🔴 No se encontró el usuario
+        
+        logger.warn("No se pudo crear la cuenta. Usuario con ID {} no encontrado", idUsuario);
+        return false;
     }
 
-    /**
-     * 🔹 Elimina una cuenta si existe en la base de datos.
-     */
     public boolean eliminarCuenta(Long idCuenta) {
+        logger.info("Intentando eliminar la cuenta con ID: {}", idCuenta);
         if (cuentaRepositorio.existsById(idCuenta)) {
             cuentaRepositorio.deleteById(idCuenta);
+            logger.info("Cuenta con ID {} eliminada con éxito", idCuenta);
             return true;
         }
+        
+        logger.warn("No se pudo eliminar la cuenta. Cuenta con ID {} no encontrada", idCuenta);
         return false;
     }
 }

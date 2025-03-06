@@ -1,8 +1,11 @@
 package Api.proyectoFinalDWSDIW.servicios;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import Api.proyectoFinalDWSDIW.daos.TokenDao;
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 import Api.proyectoFinalDWSDIW.repositorios.TokenRepositorio;
@@ -17,6 +20,8 @@ public class TokenServicio {
 
     @Autowired
     private TokenRepositorio tokenRepositorio;
+    private static final Logger logger = LoggerFactory.getLogger(TokenServicio.class);
+
 
     /**
      * Verifica si un token es válido y no ha expirado.

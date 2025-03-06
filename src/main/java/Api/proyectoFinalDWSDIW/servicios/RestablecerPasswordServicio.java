@@ -1,5 +1,7 @@
 package Api.proyectoFinalDWSDIW.servicios;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +21,14 @@ public class RestablecerPasswordServicio {
 
     @Autowired
     private TokenRepositorio tokenRepositorio;
+    private static final Logger logger = LoggerFactory.getLogger(RestablecerPasswordServicio.class);
 
     // ✅ Guardar el token en la base de datos
     public boolean guardarToken(String email, String token, LocalDateTime fechaExpiracion) {
         UsuarioDao usuario = usuarioRepositorio.findByEmailUsuario(email);
         
         if (usuario == null) {
-            System.out.println("❌ No se encontró un usuario con el email: " + email);
+            logger.warn("No se encontró un usuario con el email: {}", email);
             return false;
         }
 
@@ -39,7 +42,7 @@ public class RestablecerPasswordServicio {
 
         tokenRepositorio.save(nuevoToken);
 
-        System.out.println("✅ Token guardado correctamente para el usuario: " + email);
+        logger.info("Token guardado correctamente para el usuario: {}", email);
         return true;
     }
 
@@ -48,7 +51,7 @@ public class RestablecerPasswordServicio {
         Optional<TokenDao> tokenEntidadOpt = tokenRepositorio.findByToken(token);
 
         if (tokenEntidadOpt.isEmpty()) {
-            System.out.println("❌ Token no encontrado en la base de datos.");
+            logger.warn("Token no encontrado en la base de datos.");
             return false;
         }
 
@@ -56,7 +59,7 @@ public class RestablecerPasswordServicio {
 
         // ✅ Verificar si el token ha expirado
         if (tokenEntidad.estaExpirado()) {
-            System.out.println("❌ El token ha expirado.");
+            logger.warn("El token ha expirado.");
             return false;
         }
 
@@ -69,7 +72,7 @@ public class RestablecerPasswordServicio {
 
         // ✅ Eliminar el token después de usarlo
         tokenRepositorio.deleteByToken(tokenEntidad.getToken());
-        System.out.println("✅ Contraseña actualizada y token eliminado correctamente.");
+        logger.info("Contraseña actualizada y token eliminado correctamente.");
 
         return true;
     }
