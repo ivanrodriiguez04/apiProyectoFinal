@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
+import Api.proyectoFinalDWSDIW.dtos.UsuarioDto;
 import Api.proyectoFinalDWSDIW.servicios.AdministradorServicio;
-
 
 /**
  * Controlador para gestionar usuarios administradores.
@@ -37,9 +36,9 @@ public class AdministradorControlador {
      * @return ResponseEntity con la lista de usuarios o código 204 si está vacía
      */
     @GetMapping("/usuarios")
-    public ResponseEntity<List<UsuarioDao>> obtenerUsuarios() {
+    public ResponseEntity<List<UsuarioDto>> obtenerUsuarios() {
         logger.info("Solicitud recibida para obtener todos los usuarios");
-        List<UsuarioDao> usuarios = administradorServicio.obtenerTodosLosUsuarios();
+        List<UsuarioDto> usuarios = administradorServicio.obtenerTodosLosUsuarios();
         if (usuarios.isEmpty()) {
             logger.warn("No se encontraron usuarios en la base de datos");
             return ResponseEntity.noContent().build();

@@ -2,14 +2,13 @@ package Api.proyectoFinalDWSDIW.dtos;
 
 /**
  * DTO que representa la información básica de un usuario.
- * 
- * @author irodhan - 06/03/2025
  */
 public class UsuarioDto {
     private Long idUsuario;
     private String nombreCompletoUsuario;
     private String telefonoUsuario;
     private String emailUsuario;
+    private String rolUsuario; // 👈 Agregado
 
     // Getters & Setters
     public Long getIdUsuario() { return idUsuario; }
@@ -23,4 +22,7 @@ public class UsuarioDto {
 
     public String getEmailUsuario() { return emailUsuario; }
     public void setEmailUsuario(String emailUsuario) { this.emailUsuario = emailUsuario; }
+
+    public String getRolUsuario() { return rolUsuario; } // 👈 Getter del rol
+    public void setRolUsuario(String rolUsuario) { this.rolUsuario = rolUsuario; } // 👈 Setter del rol
 }
