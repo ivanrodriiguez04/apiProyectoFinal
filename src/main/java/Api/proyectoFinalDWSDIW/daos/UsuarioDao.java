@@ -23,7 +23,7 @@ public class UsuarioDao {
     @Column(name = "nombre_completo_usuario", length = 50)
     private String nombreCompletoUsuario;
 
-    @Column(name = "telefono_usuario")
+    @Column(name = "telefono_usuario",length=9)
     private String telefonoUsuario;
 
     @Column(name = "rol_usuario")
@@ -34,7 +34,10 @@ public class UsuarioDao {
 
     @Column(name = "password_usuario", length = 60)
     private String passwordUsuario;
-
+    
+    @Column(name = "ciudad_usuario")
+    private String ciudadUsuario;
+    
     @Column(name = "dni_usuario", unique = true, length = 9)
     private String dniUsuario;
 
@@ -64,7 +67,7 @@ public class UsuarioDao {
      * Constructor con parámetros.
      */
     public UsuarioDao(long idUsuario, String nombreCompletoUsuario, String telefonoUsuario, String rolUsuario,
-                      String emailUsuario, String passwordUsuario, String dniUsuario, byte[] fotoDniFrontalUsuario,
+                      String emailUsuario, String passwordUsuario, String ciudadUsuario,String dniUsuario, byte[] fotoDniFrontalUsuario,
                       byte[] fotoDniTraseroUsuario, byte[] fotoUsuario, boolean confirmado) {
         this.idUsuario = idUsuario;
         this.nombreCompletoUsuario = nombreCompletoUsuario;
@@ -72,6 +75,7 @@ public class UsuarioDao {
         this.rolUsuario = rolUsuario;
         this.emailUsuario = emailUsuario;
         this.passwordUsuario = passwordUsuario;
+        this.ciudadUsuario = ciudadUsuario;
         this.dniUsuario = dniUsuario;
         this.fotoDniFrontalUsuario = fotoDniFrontalUsuario;
         this.fotoDniTraseroUsuario = fotoDniTraseroUsuario;
@@ -98,6 +102,9 @@ public class UsuarioDao {
     public String getPasswordUsuario() { return passwordUsuario; }
     public void setPasswordUsuario(String passwordUsuario) { this.passwordUsuario = passwordUsuario; }
 
+    public String getCiudadUsuario() { return ciudadUsuario; }
+    public void setCiudadUsuario(String ciudadUsuario) { this.ciudadUsuario = ciudadUsuario; }
+    
     public String getDniUsuario() { return dniUsuario; }
     public void setDniUsuario(String dniUsuario) { this.dniUsuario = dniUsuario; }
 

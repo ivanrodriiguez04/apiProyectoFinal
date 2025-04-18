@@ -16,6 +16,7 @@ public class RegistroDto {
     private String rolUsuario;
     private String emailUsuario;
     private String passwordUsuario;
+    private String ciudadUsuario;
     private String dniUsuario;
     private byte[] fotoDniFrontalUsuario;
     private byte[] fotoDniTraseroUsuario;
@@ -27,7 +28,7 @@ public class RegistroDto {
      * Constructor con los atributos principales para el registro de usuario.
      */
     public RegistroDto(long idUsuario, String nombreCompletoUsuario, String telefonoUsuario, String emailUsuario,
-                       String passwordUsuario, String dniUsuario, byte[] fotoDniFrontalUsuario, 
+                       String passwordUsuario, String ciudadUsuario,String dniUsuario, byte[] fotoDniFrontalUsuario, 
                        byte[] fotoDniTraseroUsuario, byte[] fotoUsuario) {
         this.idUsuario = idUsuario;
         this.nombreCompletoUsuario = nombreCompletoUsuario;
@@ -35,6 +36,7 @@ public class RegistroDto {
         this.rolUsuario = "usuario"; // Valor por defecto
         this.emailUsuario = emailUsuario;
         this.passwordUsuario = passwordUsuario;
+        this.ciudadUsuario = ciudadUsuario;
         this.dniUsuario = dniUsuario;
         this.fotoDniFrontalUsuario = fotoDniFrontalUsuario;
         this.fotoDniTraseroUsuario = fotoDniTraseroUsuario;
@@ -53,6 +55,7 @@ public class RegistroDto {
         usuario.setTelefonoUsuario(this.telefonoUsuario);
         usuario.setEmailUsuario(this.emailUsuario);
         usuario.setPasswordUsuario(this.passwordUsuario);
+        usuario.setCiudadUsuario(this.ciudadUsuario);
         usuario.setDniUsuario(this.dniUsuario);
         usuario.setFotoDniFrontalUsuario(this.fotoDniFrontalUsuario);
         usuario.setFotoDniTraseroUsuario(this.fotoDniTraseroUsuario);
@@ -108,6 +111,14 @@ public class RegistroDto {
 
 	public void setPasswordUsuario(String passwordUsuario) {
 		this.passwordUsuario = passwordUsuario;
+	}
+
+	public String getCiudadUsuario() {
+		return ciudadUsuario;
+	}
+
+	public void setCiudadUsuario(String ciudadUsuario) {
+		this.ciudadUsuario = ciudadUsuario;
 	}
 
 	public String getDniUsuario() {
