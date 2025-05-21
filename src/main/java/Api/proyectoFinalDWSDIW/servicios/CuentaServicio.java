@@ -94,4 +94,16 @@ public class CuentaServicio {
         logger.warn("No se pudo eliminar la cuenta. Cuenta con ID {} no encontrada", idCuenta);
         return false;
     }
+    
+    public boolean actualizarSaldoPorIban(String ibanCuenta, double nuevoSaldo) {
+        Optional<CuentaDao> cuentaOpt = cuentaRepositorio.findByIbanCuenta(ibanCuenta);
+        if (cuentaOpt.isPresent()) {
+            CuentaDao cuenta = cuentaOpt.get();
+            cuenta.setDineroCuenta(nuevoSaldo);
+            cuentaRepositorio.save(cuenta);
+            return true;
+        }
+        return false;
+    }
+
 }

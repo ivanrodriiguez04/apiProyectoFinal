@@ -1,20 +1,20 @@
-2025-04-19 00:22:33 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 10388 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
-2025-04-19 00:22:33 - No active profile set, falling back to 1 default profile: "default"
-2025-04-19 00:22:34 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-19 00:22:34 - Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
-2025-04-19 00:22:35 - Tomcat initialized with port 8081 (http)
-2025-04-19 00:22:35 - Starting service [Tomcat]
-2025-04-19 00:22:35 - Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-04-19 00:22:35 - Initializing Spring embedded WebApplicationContext
-2025-04-19 00:22:35 - Root WebApplicationContext: initialization completed in 1334 ms
-2025-04-19 00:22:35 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-19 00:22:35 - HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-04-19 00:22:35 - HHH000026: Second-level cache disabled
-2025-04-19 00:22:35 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-19 00:22:35 - HikariPool-1 - Starting...
-2025-04-19 00:22:36 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6c5ae8fd
-2025-04-19 00:22:36 - HikariPool-1 - Start completed.
-2025-04-19 00:22:36 - HHH10001005: Database info:
+2025-05-22 00:42:35 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 12548 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-22 00:42:35 - No active profile set, falling back to 1 default profile: "default"
+2025-05-22 00:42:36 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22 00:42:36 - Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
+2025-05-22 00:42:36 - Tomcat initialized with port 8081 (http)
+2025-05-22 00:42:36 - Starting service [Tomcat]
+2025-05-22 00:42:36 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-22 00:42:36 - Initializing Spring embedded WebApplicationContext
+2025-05-22 00:42:36 - Root WebApplicationContext: initialization completed in 1775 ms
+2025-05-22 00:42:37 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22 00:42:37 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-22 00:42:37 - HHH000026: Second-level cache disabled
+2025-05-22 00:42:37 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22 00:42:37 - HikariPool-1 - Starting...
+2025-05-22 00:42:37 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55e91e61
+2025-05-22 00:42:37 - HikariPool-1 - Start completed.
+2025-05-22 00:42:37 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.0
@@ -22,114 +22,36 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-04-19 00:22:36 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-19 00:22:37 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-19 00:22:37 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-19 00:22:37 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-19 00:22:38 - Tomcat started on port 8081 (http) with context path '/'
-2025-04-19 00:22:38 - Started ProyectoFinalDwsdiwApplication in 4.659 seconds (process running for 5.073)
-2025-04-19 00:25:31 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-19 00:25:31 - Initializing Servlet 'dispatcherServlet'
-2025-04-19 00:25:31 - Completed initialization in 2 ms
-2025-04-19 00:25:31 - Intento de inicio de sesión para el usuario: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:31 - Validando credenciales para el usuario: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:31 - Inicio de sesión exitoso para el usuario: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:31 - Inicio de sesión exitoso para el usuario: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:33 - Solicitud para obtener cuentas del usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:33 - Obteniendo cuentas para el usuario con ID: 34
-2025-04-19 00:25:33 - Se encontraron 1 cuentas para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:39 - Solicitud para obtener cuentas del usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:39 - Obteniendo cuentas para el usuario con ID: 34
-2025-04-19 00:25:39 - Se encontraron 1 cuentas para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:39 - Solicitud para crear una cuenta con datos: {emailUsuario=ivanrodriguezmarchan24@gmail.com, dineroCuenta=0.0, nombreCuenta=Paco, ibanCuenta=ES4121000418480135784153, tipoCuenta=familiar}
-2025-04-19 00:25:39 - Intentando crear una cuenta para el usuario con ID: 34
-2025-04-19 00:25:39 - Cuenta creada con éxito para el usuario con ID: 34
-2025-04-19 00:25:39 - Cuenta creada con éxito para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:39 - Solicitud para obtener cuentas del usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:39 - Obteniendo cuentas para el usuario con ID: 34
-2025-04-19 00:25:39 - Se encontraron 2 cuentas para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:50 - Solicitud para obtener cuentas del usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:50 - Obteniendo cuentas para el usuario con ID: 34
-2025-04-19 00:25:50 - Se encontraron 2 cuentas para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:50 - Solicitud para crear una cuenta con datos: {emailUsuario=ivanrodriguezmarchan24@gmail.com, dineroCuenta=0.0, nombreCuenta=Motos, ibanCuenta=ES8621000418480430584094, tipoCuenta=familiar}
-2025-04-19 00:25:50 - Intentando crear una cuenta para el usuario con ID: 34
-2025-04-19 00:25:50 - Cuenta creada con éxito para el usuario con ID: 34
-2025-04-19 00:25:50 - Cuenta creada con éxito para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:50 - Solicitud para obtener cuentas del usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:25:50 - Obteniendo cuentas para el usuario con ID: 34
-2025-04-19 00:25:50 - Se encontraron 3 cuentas para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:28:16 - Solicitud para eliminar cuenta con ID: 25
-2025-04-19 00:28:16 - Intentando eliminar la cuenta con ID: 25
-2025-04-19 00:28:16 - Cuenta con ID 25 eliminada con éxito
-2025-04-19 00:28:16 - Cuenta con ID 25 eliminada con éxito
-2025-04-19 00:28:18 - Solicitud para obtener cuentas del usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:28:18 - Obteniendo cuentas para el usuario con ID: 34
-2025-04-19 00:28:18 - Se encontraron 2 cuentas para el usuario con email: ivanrodriguezmarchan24@gmail.com
-2025-04-19 00:34:04 - Intento de inicio de sesión para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:04 - Validando credenciales para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:04 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:04 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:06 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:06 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:06 - Se encontraron 5 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:13 - Solicitud para eliminar cuenta con ID: 10
-2025-04-19 00:34:13 - Intentando eliminar la cuenta con ID: 10
-2025-04-19 00:34:13 - Cuenta con ID 10 eliminada con éxito
-2025-04-19 00:34:13 - Cuenta con ID 10 eliminada con éxito
-2025-04-19 00:34:15 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:15 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:15 - Se encontraron 4 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:16 - Solicitud para eliminar cuenta con ID: 18
-2025-04-19 00:34:16 - Intentando eliminar la cuenta con ID: 18
-2025-04-19 00:34:16 - Cuenta con ID 18 eliminada con éxito
-2025-04-19 00:34:16 - Cuenta con ID 18 eliminada con éxito
-2025-04-19 00:34:17 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:17 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:17 - Se encontraron 3 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:19 - Solicitud para eliminar cuenta con ID: 26
-2025-04-19 00:34:19 - Intentando eliminar la cuenta con ID: 26
-2025-04-19 00:34:19 - Cuenta con ID 26 eliminada con éxito
-2025-04-19 00:34:19 - Cuenta con ID 26 eliminada con éxito
-2025-04-19 00:34:20 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:20 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:20 - Se encontraron 2 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:24 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:24 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:24 - Se encontraron 2 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:24 - Solicitud para crear una cuenta con datos: {emailUsuario=ivanrodriiguez04@gmail.com, dineroCuenta=0.0, nombreCuenta=mora, ibanCuenta=ES0321009876190535708600, tipoCuenta=familiar}
-2025-04-19 00:34:24 - Intentando crear una cuenta para el usuario con ID: 23
-2025-04-19 00:34:24 - Cuenta creada con éxito para el usuario con ID: 23
-2025-04-19 00:34:24 - Cuenta creada con éxito para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:24 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:24 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:24 - Se encontraron 3 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:38 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:38 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:38 - Se encontraron 3 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:38 - Solicitud para crear una cuenta con datos: {emailUsuario=ivanrodriiguez04@gmail.com, dineroCuenta=0.0, nombreCuenta=Motos, ibanCuenta=ES2721009876130899521512, tipoCuenta=familiar}
-2025-04-19 00:34:38 - Intentando crear una cuenta para el usuario con ID: 23
-2025-04-19 00:34:38 - Cuenta creada con éxito para el usuario con ID: 23
-2025-04-19 00:34:38 - Cuenta creada con éxito para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:38 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:34:38 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:34:38 - Se encontraron 4 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:47:07 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 10280 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
-2025-04-19 00:47:07 - No active profile set, falling back to 1 default profile: "default"
-2025-04-19 00:47:07 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-19 00:47:07 - Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
-2025-04-19 00:47:08 - Tomcat initialized with port 8081 (http)
-2025-04-19 00:47:08 - Starting service [Tomcat]
-2025-04-19 00:47:08 - Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-04-19 00:47:08 - Initializing Spring embedded WebApplicationContext
-2025-04-19 00:47:08 - Root WebApplicationContext: initialization completed in 1294 ms
-2025-04-19 00:47:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-19 00:47:08 - HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-04-19 00:47:08 - HHH000026: Second-level cache disabled
-2025-04-19 00:47:09 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-19 00:47:09 - HikariPool-1 - Starting...
-2025-04-19 00:47:09 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@74764622
-2025-04-19 00:47:09 - HikariPool-1 - Start completed.
-2025-04-19 00:47:09 - HHH10001005: Database info:
+2025-05-22 00:42:38 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 00:42:38 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22 00:42:39 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-22 00:42:39 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-22 00:42:40 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-22 00:42:40 - Started ProyectoFinalDwsdiwApplication in 5.679 seconds (process running for 6.207)
+2025-05-22 00:44:10 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-22 00:44:10 - Initializing Servlet 'dispatcherServlet'
+2025-05-22 00:44:10 - Completed initialization in 1 ms
+2025-05-22 00:44:50 - Solicitud recibida para obtener todos los usuarios
+2025-05-22 00:44:50 - Obteniendo todos los usuarios de la base de datos
+2025-05-22 00:44:50 - Usuarios obtenidos: 4
+2025-05-22 00:44:50 - Usuarios obtenidos: 4
+2025-05-22 00:45:48 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 18060 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-22 00:45:48 - No active profile set, falling back to 1 default profile: "default"
+2025-05-22 00:45:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22 00:45:49 - Finished Spring Data repository scanning in 75 ms. Found 7 JPA repository interfaces.
+2025-05-22 00:45:49 - Tomcat initialized with port 8081 (http)
+2025-05-22 00:45:49 - Starting service [Tomcat]
+2025-05-22 00:45:49 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-22 00:45:49 - Initializing Spring embedded WebApplicationContext
+2025-05-22 00:45:49 - Root WebApplicationContext: initialization completed in 1309 ms
+2025-05-22 00:45:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22 00:45:50 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-22 00:45:50 - HHH000026: Second-level cache disabled
+2025-05-22 00:45:50 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22 00:45:50 - HikariPool-1 - Starting...
+2025-05-22 00:45:50 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d85b399
+2025-05-22 00:45:50 - HikariPool-1 - Start completed.
+2025-05-22 00:45:50 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.0
@@ -137,50 +59,75 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-04-19 00:47:10 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-19 00:47:10 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-19 00:47:10 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-19 00:47:11 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-19 00:47:11 - Tomcat started on port 8081 (http) with context path '/'
-2025-04-19 00:47:11 - Started ProyectoFinalDwsdiwApplication in 4.574 seconds (process running for 4.991)
-2025-04-19 00:47:41 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-19 00:47:41 - Initializing Servlet 'dispatcherServlet'
-2025-04-19 00:47:41 - Completed initialization in 1 ms
-2025-04-19 00:47:41 - Intento de inicio de sesión para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:47:41 - Validando credenciales para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:47:42 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:47:42 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 00:47:43 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:47:43 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:47:43 - Se encontraron 4 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:48:25 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:48:25 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:48:25 - Se encontraron 4 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:48:25 - Solicitud para crear una cuenta con datos: {tipoCuenta=ahorro, ibanCuenta=ES0921009876110815974864, nombreCuenta=Cuenta de Inversion, dineroCuenta=0.0, emailUsuario=ivanrodriiguez04@gmail.com}
-2025-04-19 00:48:25 - Intentando crear una cuenta para el usuario con ID: 23
-2025-04-19 00:48:25 - Cuenta creada con éxito para el usuario con ID: 23
-2025-04-19 00:48:25 - Cuenta creada con éxito para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:48:26 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 00:48:26 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 00:48:26 - Se encontraron 5 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:20 - Intento de inicio de sesión para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:20 - Validando credenciales para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:20 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:20 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:23 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:23 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 01:32:23 - Se encontraron 5 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:38 - Solicitud para eliminar cuenta con ID: 1
-2025-04-19 01:32:38 - Intentando eliminar la cuenta con ID: 1
-2025-04-19 01:32:38 - Cuenta con ID 1 eliminada con éxito
-2025-04-19 01:32:38 - Cuenta con ID 1 eliminada con éxito
-2025-04-19 01:32:39 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:39 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 01:32:39 - Se encontraron 4 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:45 - Solicitud para eliminar cuenta con ID: 30
-2025-04-19 01:32:45 - Intentando eliminar la cuenta con ID: 30
-2025-04-19 01:32:45 - Cuenta con ID 30 eliminada con éxito
-2025-04-19 01:32:45 - Cuenta con ID 30 eliminada con éxito
-2025-04-19 01:32:45 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
-2025-04-19 01:32:45 - Obteniendo cuentas para el usuario con ID: 23
-2025-04-19 01:32:45 - Se encontraron 3 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
+2025-05-22 00:45:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 00:45:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22 00:45:52 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-22 00:45:52 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-22 00:45:52 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-22 00:45:52 - Started ProyectoFinalDwsdiwApplication in 4.707 seconds (process running for 5.135)
+2025-05-22 00:46:20 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 19072 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-22 00:46:20 - No active profile set, falling back to 1 default profile: "default"
+2025-05-22 00:46:20 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22 00:46:20 - Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
+2025-05-22 00:46:21 - Tomcat initialized with port 8081 (http)
+2025-05-22 00:46:21 - Starting service [Tomcat]
+2025-05-22 00:46:21 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-22 00:46:21 - Initializing Spring embedded WebApplicationContext
+2025-05-22 00:46:21 - Root WebApplicationContext: initialization completed in 1300 ms
+2025-05-22 00:46:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22 00:46:21 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-22 00:46:21 - HHH000026: Second-level cache disabled
+2025-05-22 00:46:22 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22 00:46:22 - HikariPool-1 - Starting...
+2025-05-22 00:46:22 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d235635
+2025-05-22 00:46:22 - HikariPool-1 - Start completed.
+2025-05-22 00:46:22 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-22 00:46:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 00:46:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22 00:46:23 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-22 00:46:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-22 00:46:24 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-22 00:46:24 - Started ProyectoFinalDwsdiwApplication in 4.738 seconds (process running for 5.168)
+2025-05-22 00:46:55 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-22 00:46:55 - Initializing Servlet 'dispatcherServlet'
+2025-05-22 00:46:55 - Completed initialization in 0 ms
+2025-05-22 00:49:44 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 11580 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-22 00:49:44 - No active profile set, falling back to 1 default profile: "default"
+2025-05-22 00:49:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22 00:49:45 - Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
+2025-05-22 00:49:45 - Tomcat initialized with port 8081 (http)
+2025-05-22 00:49:46 - Starting service [Tomcat]
+2025-05-22 00:49:46 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-22 00:49:46 - Initializing Spring embedded WebApplicationContext
+2025-05-22 00:49:46 - Root WebApplicationContext: initialization completed in 1257 ms
+2025-05-22 00:49:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22 00:49:46 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-22 00:49:46 - HHH000026: Second-level cache disabled
+2025-05-22 00:49:46 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22 00:49:46 - HikariPool-1 - Starting...
+2025-05-22 00:49:46 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d85b399
+2025-05-22 00:49:46 - HikariPool-1 - Start completed.
+2025-05-22 00:49:46 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-22 00:49:47 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 00:49:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22 00:49:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-22 00:49:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-22 00:49:48 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-22 00:49:48 - Started ProyectoFinalDwsdiwApplication in 4.49 seconds (process running for 4.9)
+2025-05-22 00:50:28 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-22 00:50:28 - Initializing Servlet 'dispatcherServlet'
+2025-05-22 00:50:28 - Completed initialization in 1 ms

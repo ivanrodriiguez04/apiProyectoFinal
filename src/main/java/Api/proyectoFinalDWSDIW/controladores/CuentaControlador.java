@@ -124,4 +124,14 @@ public class CuentaControlador {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Cuenta no encontrada"));
         }
     }
+    
+    @PutMapping("/modificar-saldo")
+    public ResponseEntity<Void> modificarSaldo(@RequestBody Map<String, Object> datos) {
+        String ibanCuenta = (String) datos.get("ibanCuenta");
+        double nuevoSaldo = ((Number) datos.get("nuevoSaldo")).doubleValue();
+
+        boolean actualizado = cuentaServicio.actualizarSaldoPorIban(ibanCuenta, nuevoSaldo);
+        return actualizado ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+    }
+
 }
