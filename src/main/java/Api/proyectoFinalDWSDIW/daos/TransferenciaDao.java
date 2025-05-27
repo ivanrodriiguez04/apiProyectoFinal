@@ -2,12 +2,9 @@ package Api.proyectoFinalDWSDIW.daos;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 
 /**
  * Entidad JPA que representa la tabla 'transferencia' en el esquema 'logica_proyecto_final'.
@@ -16,40 +13,33 @@ import jakarta.persistence.GenerationType;
 @Table(name = "transferencia", schema = "logica_proyecto_final")
 public class TransferenciaDao {
 
-    /**
-     * Identificador único de la transferencia.
-     * Se genera automáticamente y corresponde a la clave primaria de la tabla.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_transferencia")
     private Long idTransferencia;
 
-    /**
-     * IBAN de origen de la transferencia.
-     */
-    @Column(name = "iban_origen", nullable = false, length = 34)
+    @Column(name = "iban_origen", nullable = false)
     private String ibanOrigen;
 
-    /**
-     * IBAN de destino de la transferencia.
-     */
-    @Column(name = "iban_destino", nullable = false, length = 34)
+    @Column(name = "iban_destino", nullable = false)
     private String ibanDestino;
 
-    /**
-     * Cantidad de dinero transferida.
-     */
     @Column(name = "cantidad_transferencia", nullable = false)
     private double cantidadTransferencia;
 
-    /**
-     * Fecha y hora en que se realizó la transferencia.
-     */
     @Column(name = "fecha_transferencia", nullable = false)
     private LocalDateTime fechaTransferencia;
 
-    // Getters y Setters
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = true) // Paso 1: lo dejas nullable=true temporalmente
+    @JsonIgnoreProperties("transferencias")
+    private UsuarioDao usuario;
+
+    @Transient
+    @JsonProperty("idUsuario")
+    private Long idUsuario;
+
+    // ===== Getters y Setters =====
 
     public Long getIdTransferencia() {
         return idTransferencia;
@@ -89,5 +79,28 @@ public class TransferenciaDao {
 
     public void setFechaTransferencia(LocalDateTime fechaTransferencia) {
         this.fechaTransferencia = fechaTransferencia;
+    }
+
+    public UsuarioDao getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDao usuario) {
+        this.usuario = usuario;
+        if (usuario != null) {
+            this.idUsuario = usuario.getIdUsuario();
+        }
+    }
+
+    public Long getIdUsuario() {
+        return (usuario != null) ? usuario.getIdUsuario() : idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+        if (this.usuario == null) {
+            this.usuario = new UsuarioDao();
+        }
+        this.usuario.setIdUsuario(idUsuario);
     }
 }

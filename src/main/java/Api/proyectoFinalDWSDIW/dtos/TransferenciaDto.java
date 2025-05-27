@@ -3,18 +3,11 @@ package Api.proyectoFinalDWSDIW.dtos;
 import java.time.LocalDateTime;
 
 public class TransferenciaDto {
-    private Long idTransferencia;
     private String ibanOrigen;
     private String ibanDestino;
     private double cantidadTransferencia;
-    private LocalDateTime fechaTransferencia;
+    private Long idUsuario; // usuario que realiza la transferencia
     // Getters y Setters
-	public Long getIdTransferencia() {
-		return idTransferencia;
-	}
-	public void setIdTransferencia(Long idTransferencia) {
-		this.idTransferencia = idTransferencia;
-	}
 	public String getIbanOrigen() {
 		return ibanOrigen;
 	}
@@ -33,12 +26,11 @@ public class TransferenciaDto {
 	public void setCantidadTransferencia(double cantidadTransferencia) {
 		this.cantidadTransferencia = cantidadTransferencia;
 	}
-	public LocalDateTime getFechaTransferencia() {
-		return fechaTransferencia;
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
-	public void setFechaTransferencia(LocalDateTime fechaTransferencia) {
-		this.fechaTransferencia = fechaTransferencia;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-	
     
 }

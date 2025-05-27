@@ -8,51 +8,64 @@ import org.springframework.transaction.annotation.Transactional;
 
 import Api.proyectoFinalDWSDIW.daos.CuentaDao;
 import Api.proyectoFinalDWSDIW.daos.TransferenciaDao;
+import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 import Api.proyectoFinalDWSDIW.dtos.TransferenciaDto;
 import Api.proyectoFinalDWSDIW.repositorios.CuentaRepositorio;
 import Api.proyectoFinalDWSDIW.repositorios.TransferenciaRepositorio;
+import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
 
-/**
- * Servicio para la gestión de transferencias en la aplicacion.
- * 
- * @author irodhan - 06/03/2025
- */
 @Service
 public class TransferenciaServicio {
 
-	@Autowired
+    @Autowired
     private CuentaRepositorio cuentaRepositorio;
+
+    @Autowired
+    private UsuarioRepositorio usuarioRepositorio;
 
     @Autowired
     private TransferenciaRepositorio transferenciaRepositorio;
 
     /**
-     * Busca una cuenta por su IBAN.
-     */
-    public CuentaDao buscarCuentaPorIban(String iban) {
-        return cuentaRepositorio.findByIbanCuenta(iban)
-                .orElseThrow(() -> new IllegalArgumentException("Cuenta no encontrada con IBAN: " + iban));
-    }
-
-    /**
-     * Realiza una transferencia entre dos cuentas.
+     * Ejecuta una transferencia bancaria entre dos cuentas si el usuario es válido y dueño de la cuenta origen.
+     * 
+     * @param dto Datos de la transferencia
+     * @throws IllegalArgumentException Si hay un error lógico en la operación
      */
     @Transactional
     public void realizarTransferencia(TransferenciaDto dto) {
-        CuentaDao cuentaOrigen = buscarCuentaPorIban(dto.getIbanOrigen());
-        CuentaDao cuentaDestino = buscarCuentaPorIban(dto.getIbanDestino());
+        // Buscar el usuario que realiza la transferencia
+        UsuarioDao usuario = usuarioRepositorio.findById(dto.getIdUsuario())
+                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado."));
 
-        if (cuentaOrigen.getDineroCuenta() < dto.getCantidadTransferencia()) {
-            throw new IllegalArgumentException("Saldo insuficiente en la cuenta de origen");
+        // Buscar la cuenta de origen y validar propiedad
+        CuentaDao cuentaOrigen = cuentaRepositorio.findByIbanCuenta(dto.getIbanOrigen())
+                .orElseThrow(() -> new IllegalArgumentException("Cuenta de origen no encontrada."));
+
+        Long usuarioCuentaId = cuentaOrigen.getIdUsuario(); // método seguro
+
+        if (usuarioCuentaId == null) {
+            throw new IllegalArgumentException("La cuenta de origen no está asignada a ningún usuario.");
         }
 
-        // Descontar del origen
-        cuentaOrigen.setDineroCuenta(cuentaOrigen.getDineroCuenta() - dto.getCantidadTransferencia());
+        if (!usuarioCuentaId.equals(dto.getIdUsuario())) {
+            throw new IllegalArgumentException("No puedes transferir desde una cuenta que no te pertenece.");
+        }
 
-        // Sumar al destino
+
+        // Buscar la cuenta de destino
+        CuentaDao cuentaDestino = cuentaRepositorio.findByIbanCuenta(dto.getIbanDestino())
+                .orElseThrow(() -> new IllegalArgumentException("Cuenta de destino no encontrada."));
+
+        // Validar fondos suficientes
+        if (cuentaOrigen.getDineroCuenta() < dto.getCantidadTransferencia()) {
+            throw new IllegalArgumentException("Saldo insuficiente en la cuenta de origen.");
+        }
+
+        // Actualizar saldos
+        cuentaOrigen.setDineroCuenta(cuentaOrigen.getDineroCuenta() - dto.getCantidadTransferencia());
         cuentaDestino.setDineroCuenta(cuentaDestino.getDineroCuenta() + dto.getCantidadTransferencia());
 
-        // Guardar actualizaciones
         cuentaRepositorio.save(cuentaOrigen);
         cuentaRepositorio.save(cuentaDestino);
 
@@ -62,6 +75,7 @@ public class TransferenciaServicio {
         transferencia.setIbanDestino(dto.getIbanDestino());
         transferencia.setCantidadTransferencia(dto.getCantidadTransferencia());
         transferencia.setFechaTransferencia(LocalDateTime.now());
+        transferencia.setUsuario(usuario);
 
         transferenciaRepositorio.save(transferencia);
     }

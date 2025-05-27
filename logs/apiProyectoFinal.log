@@ -1,133 +1,294 @@
-2025-05-22 00:42:35 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 12548 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
-2025-05-22 00:42:35 - No active profile set, falling back to 1 default profile: "default"
-2025-05-22 00:42:36 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-05-22 00:42:36 - Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
-2025-05-22 00:42:36 - Tomcat initialized with port 8081 (http)
-2025-05-22 00:42:36 - Starting service [Tomcat]
-2025-05-22 00:42:36 - Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-05-22 00:42:36 - Initializing Spring embedded WebApplicationContext
-2025-05-22 00:42:36 - Root WebApplicationContext: initialization completed in 1775 ms
-2025-05-22 00:42:37 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-05-22 00:42:37 - HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-05-22 00:42:37 - HHH000026: Second-level cache disabled
-2025-05-22 00:42:37 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-05-22 00:42:37 - HikariPool-1 - Starting...
-2025-05-22 00:42:37 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55e91e61
-2025-05-22 00:42:37 - HikariPool-1 - Start completed.
-2025-05-22 00:42:37 - HHH10001005: Database info:
+2025-05-27 01:00:09 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 20436 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-27 01:00:09 - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 01:00:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 01:00:10 - Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
+2025-05-27 01:00:11 - Tomcat initialized with port 8081 (http)
+2025-05-27 01:00:11 - Starting service [Tomcat]
+2025-05-27 01:00:11 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-27 01:00:11 - Initializing Spring embedded WebApplicationContext
+2025-05-27 01:00:11 - Root WebApplicationContext: initialization completed in 1292 ms
+2025-05-27 01:00:11 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 01:00:11 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-27 01:00:11 - HHH000026: Second-level cache disabled
+2025-05-27 01:00:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 01:00:11 - HikariPool-1 - Starting...
+2025-05-27 01:00:11 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1d55dd21
+2025-05-27 01:00:11 - HikariPool-1 - Start completed.
+2025-05-27 01:00:11 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
-	Database version: 17.0
+	Database version: 17.5
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-05-22 00:42:38 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-05-22 00:42:38 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-05-22 00:42:39 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-05-22 00:42:39 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-05-22 00:42:40 - Tomcat started on port 8081 (http) with context path '/'
-2025-05-22 00:42:40 - Started ProyectoFinalDwsdiwApplication in 5.679 seconds (process running for 6.207)
-2025-05-22 00:44:10 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-22 00:44:10 - Initializing Servlet 'dispatcherServlet'
-2025-05-22 00:44:10 - Completed initialization in 1 ms
-2025-05-22 00:44:50 - Solicitud recibida para obtener todos los usuarios
-2025-05-22 00:44:50 - Obteniendo todos los usuarios de la base de datos
-2025-05-22 00:44:50 - Usuarios obtenidos: 4
-2025-05-22 00:44:50 - Usuarios obtenidos: 4
-2025-05-22 00:45:48 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 18060 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
-2025-05-22 00:45:48 - No active profile set, falling back to 1 default profile: "default"
-2025-05-22 00:45:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-05-22 00:45:49 - Finished Spring Data repository scanning in 75 ms. Found 7 JPA repository interfaces.
-2025-05-22 00:45:49 - Tomcat initialized with port 8081 (http)
-2025-05-22 00:45:49 - Starting service [Tomcat]
-2025-05-22 00:45:49 - Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-05-22 00:45:49 - Initializing Spring embedded WebApplicationContext
-2025-05-22 00:45:49 - Root WebApplicationContext: initialization completed in 1309 ms
-2025-05-22 00:45:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-05-22 00:45:50 - HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-05-22 00:45:50 - HHH000026: Second-level cache disabled
-2025-05-22 00:45:50 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-05-22 00:45:50 - HikariPool-1 - Starting...
-2025-05-22 00:45:50 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d85b399
-2025-05-22 00:45:50 - HikariPool-1 - Start completed.
-2025-05-22 00:45:50 - HHH10001005: Database info:
+2025-05-27 01:00:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 01:00:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 01:00:13 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 01:00:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 01:00:13 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-27 01:00:13 - Started ProyectoFinalDwsdiwApplication in 4.655 seconds (process running for 5.063)
+2025-05-27 01:00:33 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 01:00:33 - Initializing Servlet 'dispatcherServlet'
+2025-05-27 01:00:33 - Completed initialization in 1 ms
+2025-05-27 01:00:33 - Intento de inicio de sesión para el usuario: ivanrodriiguez04@gmail.com
+2025-05-27 01:00:33 - Validando credenciales para el usuario: ivanrodriiguez04@gmail.com
+2025-05-27 01:00:33 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
+2025-05-27 01:00:33 - Inicio de sesión exitoso para el usuario: ivanrodriiguez04@gmail.com
+2025-05-27 01:02:12 - Solicitud para obtener cuentas del usuario con email: ivanrodriiguez04@gmail.com
+2025-05-27 01:02:12 - Obteniendo cuentas para el usuario con ID: 23
+2025-05-27 01:02:12 - Se encontraron 3 cuentas para el usuario con email: ivanrodriiguez04@gmail.com
+2025-05-27 02:40:58 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 13860 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-27 02:40:58 - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 02:40:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 02:40:59 - Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
+2025-05-27 02:40:59 - Tomcat initialized with port 8081 (http)
+2025-05-27 02:40:59 - Starting service [Tomcat]
+2025-05-27 02:40:59 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-27 02:40:59 - Initializing Spring embedded WebApplicationContext
+2025-05-27 02:40:59 - Root WebApplicationContext: initialization completed in 1268 ms
+2025-05-27 02:40:59 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 02:40:59 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-27 02:41:00 - HHH000026: Second-level cache disabled
+2025-05-27 02:41:00 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 02:41:00 - HikariPool-1 - Starting...
+2025-05-27 02:41:00 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d85b399
+2025-05-27 02:41:00 - HikariPool-1 - Start completed.
+2025-05-27 02:41:00 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
-	Database version: 17.0
+	Database version: 17.5
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-05-22 00:45:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-05-22 00:45:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-05-22 00:45:52 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-05-22 00:45:52 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-05-22 00:45:52 - Tomcat started on port 8081 (http) with context path '/'
-2025-05-22 00:45:52 - Started ProyectoFinalDwsdiwApplication in 4.707 seconds (process running for 5.135)
-2025-05-22 00:46:20 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 19072 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
-2025-05-22 00:46:20 - No active profile set, falling back to 1 default profile: "default"
-2025-05-22 00:46:20 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-05-22 00:46:20 - Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
-2025-05-22 00:46:21 - Tomcat initialized with port 8081 (http)
-2025-05-22 00:46:21 - Starting service [Tomcat]
-2025-05-22 00:46:21 - Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-05-22 00:46:21 - Initializing Spring embedded WebApplicationContext
-2025-05-22 00:46:21 - Root WebApplicationContext: initialization completed in 1300 ms
-2025-05-22 00:46:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-05-22 00:46:21 - HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-05-22 00:46:21 - HHH000026: Second-level cache disabled
-2025-05-22 00:46:22 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-05-22 00:46:22 - HikariPool-1 - Starting...
-2025-05-22 00:46:22 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d235635
-2025-05-22 00:46:22 - HikariPool-1 - Start completed.
-2025-05-22 00:46:22 - HHH10001005: Database info:
+2025-05-27 02:41:01 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 02:41:01 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists logica_proyecto_final.transferencia add column id_usuario bigint not null" via JDBC [ERROR: la columna «id_usuario» de la relación «transferencia» contiene valores null]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists logica_proyecto_final.transferencia add column id_usuario bigint not null" via JDBC [ERROR: la columna «id_usuario» de la relación «transferencia» contiene valores null]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at Api.proyectoFinalDWSDIW.ProyectoFinalDwsdiwApplication.main(ProyectoFinalDwsdiwApplication.java:10)
+Caused by: org.postgresql.util.PSQLException: ERROR: la columna «id_usuario» de la relación «transferencia» contiene valores null
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2025-05-27 02:41:01 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists logica_proyecto_final.transferencia add constraint FKom2kb52gpr5c9n4dgxwu5bkku foreign key (id_usuario) references proyecto_final.usuario" via JDBC [ERROR: no existe la columna «id_usuario» referida en la llave foránea]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists logica_proyecto_final.transferencia add constraint FKom2kb52gpr5c9n4dgxwu5bkku foreign key (id_usuario) references proyecto_final.usuario" via JDBC [ERROR: no existe la columna «id_usuario» referida en la llave foránea]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:448)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:269)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at Api.proyectoFinalDWSDIW.ProyectoFinalDwsdiwApplication.main(ProyectoFinalDwsdiwApplication.java:10)
+Caused by: org.postgresql.util.PSQLException: ERROR: no existe la columna «id_usuario» referida en la llave foránea
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2025-05-27 02:41:01 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 02:41:01 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 02:41:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 02:41:02 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-27 02:41:02 - Started ProyectoFinalDwsdiwApplication in 4.625 seconds (process running for 5.095)
+2025-05-27 02:59:22 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 20324 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-27 02:59:22 - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 02:59:23 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 02:59:23 - Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
+2025-05-27 02:59:23 - Tomcat initialized with port 8081 (http)
+2025-05-27 02:59:23 - Starting service [Tomcat]
+2025-05-27 02:59:23 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-27 02:59:24 - Initializing Spring embedded WebApplicationContext
+2025-05-27 02:59:24 - Root WebApplicationContext: initialization completed in 1258 ms
+2025-05-27 02:59:24 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 02:59:24 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-27 02:59:24 - HHH000026: Second-level cache disabled
+2025-05-27 02:59:24 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 02:59:24 - HikariPool-1 - Starting...
+2025-05-27 02:59:24 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77c692b4
+2025-05-27 02:59:24 - HikariPool-1 - Start completed.
+2025-05-27 02:59:24 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
-	Database version: 17.0
+	Database version: 17.5
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-05-22 00:46:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-05-22 00:46:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-05-22 00:46:23 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-05-22 00:46:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-05-22 00:46:24 - Tomcat started on port 8081 (http) with context path '/'
-2025-05-22 00:46:24 - Started ProyectoFinalDwsdiwApplication in 4.738 seconds (process running for 5.168)
-2025-05-22 00:46:55 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-22 00:46:55 - Initializing Servlet 'dispatcherServlet'
-2025-05-22 00:46:55 - Completed initialization in 0 ms
-2025-05-22 00:49:44 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 11580 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
-2025-05-22 00:49:44 - No active profile set, falling back to 1 default profile: "default"
-2025-05-22 00:49:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-05-22 00:49:45 - Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
-2025-05-22 00:49:45 - Tomcat initialized with port 8081 (http)
-2025-05-22 00:49:46 - Starting service [Tomcat]
-2025-05-22 00:49:46 - Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-05-22 00:49:46 - Initializing Spring embedded WebApplicationContext
-2025-05-22 00:49:46 - Root WebApplicationContext: initialization completed in 1257 ms
-2025-05-22 00:49:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-05-22 00:49:46 - HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-05-22 00:49:46 - HHH000026: Second-level cache disabled
-2025-05-22 00:49:46 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-05-22 00:49:46 - HikariPool-1 - Starting...
-2025-05-22 00:49:46 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d85b399
-2025-05-22 00:49:46 - HikariPool-1 - Start completed.
-2025-05-22 00:49:46 - HHH10001005: Database info:
+2025-05-27 02:59:25 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 02:59:25 - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists logica_proyecto_final.transferencia add column id_usuario bigint not null" via JDBC [ERROR: la columna «id_usuario» de la relación «transferencia» contiene valores null]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists logica_proyecto_final.transferencia add column id_usuario bigint not null" via JDBC [ERROR: la columna «id_usuario» de la relación «transferencia» contiene valores null]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at Api.proyectoFinalDWSDIW.ProyectoFinalDwsdiwApplication.main(ProyectoFinalDwsdiwApplication.java:10)
+Caused by: org.postgresql.util.PSQLException: ERROR: la columna «id_usuario» de la relación «transferencia» contiene valores null
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2025-05-27 02:59:25 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 02:59:26 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 02:59:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 02:59:26 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-27 02:59:26 - Started ProyectoFinalDwsdiwApplication in 4.525 seconds (process running for 4.939)
+2025-05-27 03:04:57 - Starting ProyectoFinalDwsdiwApplication using Java 17.0.4.1 with PID 16840 (C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal\target\classes started by ivanr in C:\Users\ivanr\OneDrive\Escritorio\Java\apiProyectoFinal)
+2025-05-27 03:04:57 - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 03:04:58 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 03:04:58 - Finished Spring Data repository scanning in 62 ms. Found 7 JPA repository interfaces.
+2025-05-27 03:04:58 - Tomcat initialized with port 8081 (http)
+2025-05-27 03:04:58 - Starting service [Tomcat]
+2025-05-27 03:04:58 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-27 03:04:58 - Initializing Spring embedded WebApplicationContext
+2025-05-27 03:04:58 - Root WebApplicationContext: initialization completed in 1261 ms
+2025-05-27 03:04:59 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 03:04:59 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-05-27 03:04:59 - HHH000026: Second-level cache disabled
+2025-05-27 03:04:59 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 03:04:59 - HikariPool-1 - Starting...
+2025-05-27 03:04:59 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@8ac512e
+2025-05-27 03:04:59 - HikariPool-1 - Start completed.
+2025-05-27 03:04:59 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
-	Database version: 17.0
+	Database version: 17.5
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-05-22 00:49:47 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-05-22 00:49:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-05-22 00:49:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-05-22 00:49:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-05-22 00:49:48 - Tomcat started on port 8081 (http) with context path '/'
-2025-05-22 00:49:48 - Started ProyectoFinalDwsdiwApplication in 4.49 seconds (process running for 4.9)
-2025-05-22 00:50:28 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-22 00:50:28 - Initializing Servlet 'dispatcherServlet'
-2025-05-22 00:50:28 - Completed initialization in 1 ms
+2025-05-27 03:05:00 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 03:05:00 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 03:05:00 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 03:05:01 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 03:05:01 - Tomcat started on port 8081 (http) with context path '/'
+2025-05-27 03:05:01 - Started ProyectoFinalDwsdiwApplication in 4.547 seconds (process running for 4.979)
+2025-05-27 03:15:47 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 03:15:47 - Initializing Servlet 'dispatcherServlet'
+2025-05-27 03:15:47 - Completed initialization in 1 ms
