@@ -16,8 +16,8 @@ public class TransferenciaControlador {
 
     /**
      * Endpoint para realizar una transferencia si el usuario es propietario de la cuenta de origen.
-     * 
-     * @param dto Datos de la transferencia
+     *
+     * @param dto Datos de la transferencia (con email del usuario)
      * @return Resultado de la operación
      */
     @PostMapping("/enviarDinero")

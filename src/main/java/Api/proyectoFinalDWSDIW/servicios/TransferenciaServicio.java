@@ -34,11 +34,13 @@ public class TransferenciaServicio {
      */
     @Transactional
     public void realizarTransferencia(TransferenciaDto dto) {
-        // Buscar el usuario que realiza la transferencia
-        UsuarioDao usuario = usuarioRepositorio.findById(dto.getIdUsuario())
-                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado."));
+        // ✅ Buscar el usuario por su email
+    	UsuarioDao usuario = usuarioRepositorio.findByEmailUsuario(dto.getEmailUsuario());
+    	if (usuario == null) {
+    	    throw new IllegalArgumentException("Usuario no encontrado.");
+    	}
 
-        // Buscar la cuenta de origen y validar propiedad
+        // ✅ Buscar cuenta de origen y validar propiedad
         CuentaDao cuentaOrigen = cuentaRepositorio.findByIbanCuenta(dto.getIbanOrigen())
                 .orElseThrow(() -> new IllegalArgumentException("Cuenta de origen no encontrada."));
 
@@ -48,10 +50,9 @@ public class TransferenciaServicio {
             throw new IllegalArgumentException("La cuenta de origen no está asignada a ningún usuario.");
         }
 
-        if (!usuarioCuentaId.equals(dto.getIdUsuario())) {
+        if (!usuarioCuentaId.equals(usuario.getIdUsuario())) {
             throw new IllegalArgumentException("No puedes transferir desde una cuenta que no te pertenece.");
         }
-
 
         // Buscar la cuenta de destino
         CuentaDao cuentaDestino = cuentaRepositorio.findByIbanCuenta(dto.getIbanDestino())
@@ -69,13 +70,13 @@ public class TransferenciaServicio {
         cuentaRepositorio.save(cuentaOrigen);
         cuentaRepositorio.save(cuentaDestino);
 
-        // Registrar transferencia
+        // Registrar transferencia (guardando el ID del usuario)
         TransferenciaDao transferencia = new TransferenciaDao();
         transferencia.setIbanOrigen(dto.getIbanOrigen());
         transferencia.setIbanDestino(dto.getIbanDestino());
         transferencia.setCantidadTransferencia(dto.getCantidadTransferencia());
         transferencia.setFechaTransferencia(LocalDateTime.now());
-        transferencia.setUsuario(usuario);
+        transferencia.setUsuario(usuario); // 💾 esto guarda el id_usuario en la tabla
 
         transferenciaRepositorio.save(transferencia);
     }
