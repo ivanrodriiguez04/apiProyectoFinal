@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import Api.proyectoFinalDWSDIW.daos.CuentaDao;
-import Api.proyectoFinalDWSDIW.servicios.CuentaServicio;
 import Api.proyectoFinalDWSDIW.daos.UsuarioDao;
 import Api.proyectoFinalDWSDIW.repositorios.UsuarioRepositorio;
+import Api.proyectoFinalDWSDIW.servicios.CuentaServicio;
 
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Controlador para la gestión de cuentas a través de la API REST.
  * 
- * @author irodhan - 06/03/2025
+ * @author irodhan
  */
 @RestController
 @RequestMapping("/api/cuentas")
@@ -29,13 +29,11 @@ public class CuentaControlador {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
-    
+
     private static final Logger logger = LoggerFactory.getLogger(CuentaControlador.class);
 
     /**
      * Obtiene las cuentas asociadas a un usuario por su ID.
-     * @param idUsuario ID del usuario.
-     * @return Lista de cuentas o mensaje de error si no existen.
      */
     @GetMapping("/usuario/{idUsuario}")
     public ResponseEntity<?> obtenerCuentasPorUsuario(@PathVariable("idUsuario") Long idUsuario) {
@@ -51,8 +49,6 @@ public class CuentaControlador {
 
     /**
      * Obtiene las cuentas de un usuario por su correo electrónico.
-     * @param emailUsuario Email del usuario.
-     * @return Lista de cuentas o mensaje de error si no existen.
      */
     @GetMapping("/usuario/email/{email}")
     public ResponseEntity<?> obtenerCuentasPorEmail(@PathVariable("email") String emailUsuario) {
@@ -73,8 +69,6 @@ public class CuentaControlador {
 
     /**
      * Crea una nueva cuenta para un usuario.
-     * @param requestBody Datos de la cuenta en formato JSON.
-     * @return Mensaje de éxito o error.
      */
     @PostMapping("/crear")
     public ResponseEntity<?> crearCuenta(@RequestBody Map<String, String> requestBody) {
@@ -109,8 +103,6 @@ public class CuentaControlador {
 
     /**
      * Elimina una cuenta por su ID.
-     * @param idCuenta ID de la cuenta a eliminar.
-     * @return Mensaje de éxito o error.
      */
     @DeleteMapping("/eliminar/{idCuenta}")
     public ResponseEntity<?> eliminarCuenta(@PathVariable("idCuenta") Long idCuenta) {
@@ -124,14 +116,18 @@ public class CuentaControlador {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Cuenta no encontrada"));
         }
     }
-    
-    @PutMapping("/modificar-saldo")
-    public ResponseEntity<Void> modificarSaldo(@RequestBody Map<String, Object> datos) {
-        String ibanCuenta = (String) datos.get("ibanCuenta");
-        double nuevoSaldo = ((Number) datos.get("nuevoSaldo")).doubleValue();
 
-        boolean actualizado = cuentaServicio.actualizarSaldoPorIban(ibanCuenta, nuevoSaldo);
-        return actualizado ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+    /**
+     * Obtiene los datos de un usuario por su email (para validación o consultas previas).
+     */
+    @GetMapping("/usuario/datos/email/{email}")
+    public ResponseEntity<?> obtenerUsuarioPorEmail(@PathVariable("email") String emailUsuario) {
+        logger.info("Solicitud para obtener datos del usuario con email: {}", emailUsuario);
+        UsuarioDao usuario = usuarioRepositorio.findByEmailUsuario(emailUsuario);
+        if (usuario == null) {
+            logger.warn("Usuario no encontrado con email: {}", emailUsuario);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Usuario no encontrado"));
+        }
+        return ResponseEntity.ok(usuario);
     }
-
 }
